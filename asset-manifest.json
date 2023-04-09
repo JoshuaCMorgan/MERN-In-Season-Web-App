@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/in-season/static/css/main.0681588f.css",
+    "main.js": "/in-season/static/js/main.91027ad6.js",
+    "static/js/787.df72f9c8.chunk.js": "/in-season/static/js/787.df72f9c8.chunk.js",
+    "index.html": "/in-season/index.html",
+    "main.0681588f.css.map": "/in-season/static/css/main.0681588f.css.map",
+    "main.91027ad6.js.map": "/in-season/static/js/main.91027ad6.js.map",
+    "787.df72f9c8.chunk.js.map": "/in-season/static/js/787.df72f9c8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0681588f.css",
+    "static/js/main.91027ad6.js"
+  ]
+}
