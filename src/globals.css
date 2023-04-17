@@ -37,6 +37,7 @@ html {
   /* rest of the colors */
   --black: #222;
   --white: #fff;
+  --white-transparent: rgba(255, 255, 255, 0.75);
   --orange: #f4743b;
   --eggplant: #483c46;
   --carribean-current: #3c6e71;
@@ -136,36 +137,3 @@ ul {
   display: block;
   object-fit: cover;
 }
-
-/* buttons */
-/* 
-.btn {
-  cursor: pointer;
-  color: var(--white);
-  background: var(--primary-500);
-  border: transparent;
-  border-radius: var(--borderRadius);
-  letter-spacing: var(--letterSpacing);
-  padding: 0.375rem 0.75rem;
-  box-shadow: var(--shadow-1);
-  transition: var(--transition);
-  text-transform: capitalize;
-  display: inline-block;
-}
-
-.btn:hover {
-  background: var(--primary-700);
-  box-shadow: var(--shadow-3);
-}
-.btn-hipster {
-  color: var(--primary-500);
-  background: var(--primary-200);
-}
-.btn-hipster:hover {
-  color: var(--primary-200);
-  background: var(--primary-700);
-}
-.btn-block {
-  width: 100%;
-}
- */

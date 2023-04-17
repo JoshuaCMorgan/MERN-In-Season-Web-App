@@ -1,10 +1,13 @@
-import Navbar from "./Navbar";
+import React from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 
 const App = () => {
   return (
-    <main>
+    <React.Fragment>
       <Navbar />
-    </main>
+      <Hero />
+    </React.Fragment>
   );
 };
 export default App;

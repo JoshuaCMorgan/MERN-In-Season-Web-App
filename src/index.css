@@ -1,10 +1,18 @@
 @import url("./globals.css");
 
 /* ============= PROJECT CSS =============== */
-
+:root {
+  --clr-primary-5: hsl(185, 62%, 45%);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
   background: var(--white);
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--dark-shadow);
 }
 
 .nav-header {
@@ -52,6 +60,7 @@ nav {
 .links-container {
   overflow: hidden;
   transition: var(--transition);
+  background-color: var(--white-transparent);
 }
 
 @media screen and (min-width: 800px) {
@@ -90,4 +99,99 @@ nav {
     background: transparent;
     padding-left: 0;
   }
+}
+
+/*
+=============== 
+Hero
+===============
+*/
+
+.hero {
+  margin-top: 70px;
+  min-height: 50vh;
+  background: var(--primary-500);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+      rgba(245, 247, 247, 0.5),
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("../src/assets/images/fruitsveggies.jpg") center/cover no-repeat;
+}
+.hero-banner {
+  text-align: center;
+  color: var(--clr-white);
+  padding: 2rem;
+  background: white;
+  border-radius: 50px;
+}
+.hero-banner h1 {
+  text-transform: uppercase;
+}
+.hero-banner p {
+  max-width: 35rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--black);
+  letter-spacing: var(--spacing);
+}
+
+/*
+=============== 
+Filter
+===============
+*/
+
+.filter {
+  background-color: var(--primary-100);
+  padding: 50px;
+}
+.filter form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+form select {
+  padding: 0.75em;
+  border-radius: 8px;
+  width: 10em;
+}
+
+@media screen and (max-width: 640px) {
+  .filter form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/*
+=============== 
+Footer
+===============
+*/
+
+.footer {
+  padding: 3rem 2rem;
+  background: var(--carribean-current);
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.footer-link {
+  color: var(--white);
+}
+
+.copyright {
+  color: var(--white);
 }
