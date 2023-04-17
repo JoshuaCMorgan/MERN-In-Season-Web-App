@@ -1,13 +1,5 @@
 import heroImg from "../assets/images/fruitsveggies.jpg";
 
-// const Hero = () => {
-//   return (
-//     <section>
-//       <img className='img' src={heroImg} alt='fruits-and-veggies' />
-//     </section>
-//   );
-// };
-
 const Hero = () => {
   return (
     <section className='hero' id='home'>
