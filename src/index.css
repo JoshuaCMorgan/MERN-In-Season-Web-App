@@ -109,13 +109,13 @@ Hero
 
 .hero {
   margin-top: 70px;
-  min-height: 50vh;
+  min-height: 35vh;
   background: var(--primary-500);
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(
-      rgba(245, 247, 247, 0.5),
+      rgba(245, 247, 247, 0.4),
       rgba(0, 0, 0, 0.1),
       rgba(0, 0, 0, 0.1)
     ),
@@ -124,9 +124,9 @@ Hero
 .hero-banner {
   text-align: center;
   color: var(--clr-white);
-  padding: 2rem;
+  padding: 1.5rem;
   background: white;
-  border-radius: 50px;
+  border-radius: 25px;
 }
 .hero-banner h1 {
   text-transform: uppercase;

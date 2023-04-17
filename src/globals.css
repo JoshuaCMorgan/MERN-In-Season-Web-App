@@ -94,7 +94,7 @@ h5 {
 }
 
 h1 {
-  font-size: 3.052rem;
+  font-size: clamp(1.5rem, -0.193rem + 4.6444vw, 3rem);
 }
 
 h2 {
