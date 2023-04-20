@@ -106,14 +106,13 @@ nav {
 Hero
 ===============
 */
-
-.hero {
-  margin-top: 70px;
-  min-height: 35vh;
-  background: var(--primary-500);
+header {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 25rem;
+  margin-top: 70px;
+  background: var(--primary-500);
   background: linear-gradient(
       rgba(245, 247, 247, 0.4),
       rgba(0, 0, 0, 0.1),
@@ -121,10 +120,16 @@ Hero
     ),
     url("../src/assets/images/fruitsveggies.jpg") center/cover no-repeat;
 }
+.hero {
+  /* height: clamp(10rem, 2.2414rem + 33.1034vw, 25rem); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .hero-banner {
   text-align: center;
   color: var(--clr-white);
-  padding: 1.5rem;
+  padding: 1rem;
   background: white;
   border-radius: 25px;
 }
@@ -146,26 +151,44 @@ Filter
 */
 
 .filter {
-  background-color: var(--primary-100);
-  padding: 50px;
+  /* background-color: var(--primary-100); */
+  padding: 25px;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: center;
 }
 .filter form {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  width: 900px;
+}
+.container {
+  padding: 10px;
+  flex: 1 1 auto;
 }
 
-form select {
-  padding: 0.75em;
-  border-radius: 8px;
-  width: 10em;
+.filter select {
+  padding: 0.85em;
+  border-radius: 4px;
+  width: 100%;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 610px) {
+  header {
+    justify-content: end;
+    gap: 2rem;
+  }
+  .filter {
+    padding-top: 5px;
+  }
   .filter form {
+    margin: 0 4rem;
     display: flex;
     flex-direction: column;
     text-align: center;
+  }
+
+  form .container:last-child {
+    padding-bottom: 20px;
   }
 }
 
@@ -174,7 +197,6 @@ form select {
 Footer
 ===============
 */
-
 .footer {
   padding: 3rem 2rem;
   background: var(--carribean-current);
