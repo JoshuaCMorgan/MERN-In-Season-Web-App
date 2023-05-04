@@ -96,11 +96,11 @@ const Filter = () => {
               <option value='Late August'>August</option>
               <option value='Early September'>Early September</option>
               <option value='Late September'>September</option>
-              <option value='Early October'>October</option>
+              <option value='Early October'>Early October</option>
               <option value='Late October'>October</option>
-              <option value='Early November'>November</option>
+              <option value='Early November'>Early November</option>
               <option value='Late November'>November</option>
-              <option value='Early December'>December</option>
+              <option value='Early December'>Early December</option>
               <option value='Late December'>December</option>
             </select>
           </label>
