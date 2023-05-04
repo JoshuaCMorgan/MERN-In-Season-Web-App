@@ -1,4 +1,4 @@
-[
+let produce = [
   {
     name: "Apples",
     cat_id: "Apples",
@@ -20522,3 +20522,5 @@
     },
   },
 ];
+
+export default produce;

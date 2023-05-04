@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Filter from "./components/Filter";
+import ProduceQuery from "./components/ProduceQuery";
 
 const App = () => {
   return (
@@ -11,6 +12,9 @@ const App = () => {
         <Hero />
         <Filter />
       </header>
+      <main>
+        <ProduceQuery />
+      </main>
     </React.Fragment>
   );
 };
