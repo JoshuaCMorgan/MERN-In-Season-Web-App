@@ -1,6 +1,4 @@
-import produce from "../../fruits-veggie.js";
-
-const ProduceQuery = () => {
+const Selection = ({ produce }) => {
   return (
     <section className='produceQuery'>
       <h1>Your Selection: </h1>
@@ -22,4 +20,4 @@ const ProduceQuery = () => {
   );
 };
 
-export default ProduceQuery;
+export default Selection;

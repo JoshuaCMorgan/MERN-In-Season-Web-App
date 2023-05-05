@@ -5,7 +5,7 @@ const Filter = () => {
   const stateOptions = [
     { label: "Select A State", value: "Select A State" },
     { label: "current location", value: "Use My Location" },
-    { label: "Albama", value: "Alabama" },
+    { label: "Alabama", value: "Alabama" },
     { label: "Alaska", value: "Alaska" },
     { label: "Arizona", value: "Arizona" },
     { label: "Arkansas", value: "Arkansas" },
@@ -99,6 +99,7 @@ const Filter = () => {
 
   const handleStateChange = (event) => {
     setState(event.target.value);
+    console.log(event.target.value);
   };
 
   const handleProduceChange = (event) => {
