@@ -8,15 +8,47 @@ import produceData from "./produceData";
 const App = () => {
   const [produce, setProduce] = useState(produceData);
 
-  const filterProduce = (query) => {
-    console.log({ query });
-    const newSelection = produceData.filter((produce) => {
+  function filterProduce(query) {
+    let produceByType = produceData.reduce((accum, currentItem) => {
+      let { type } = query;
+      if (type === "Any Produce") {
+        accum.push(currentItem);
+      } else if (currentItem.type === type) {
+        accum.push(currentItem);
+      }
+      return accum;
+    }, []);
+
+    let produceByTypeState = produceByType.reduce((accum, currentItem) => {
       let { state } = query;
-      return produce.states[state];
-    });
-    // console.log(newSelection);
-    setProduce(newSelection);
-  };
+      if (state.length > 2) {
+        accum.push(currentItem);
+      } else if (currentItem.states[state]) {
+        accum.push(currentItem);
+      }
+
+      return accum;
+    }, []);
+
+    let produceByTypeStateMonth = produceByTypeState.reduce(
+      (accum, currentItem) => {
+        let { month, state } = query;
+        let monthInt = Number(month);
+        if (month === "Any Month") {
+          accum.push(currentItem);
+        } else if (state.length > 2) {
+          accum.push(currentItem);
+        } else if (currentItem.states[state].seasons.includes(monthInt)) {
+          accum.push(currentItem);
+        }
+        return accum;
+      },
+      []
+    );
+
+    setProduce(produceByTypeStateMonth);
+  }
+
   return (
     <React.Fragment>
       <Navbar />

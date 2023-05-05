@@ -7,8 +7,8 @@ const Filter = ({ filterProduce }) => {
     { label: "current location", value: "Use My Location" },
     { label: "Alabama", value: "AL" },
     { label: "Alaska", value: "AK" },
-    { label: "Arizona", value: "AR" },
-    { label: "Arkansas", value: "AK" },
+    { label: "Arizona", value: "AZ" },
+    { label: "Arkansas", value: "AR" },
     { label: "California", value: "CA" },
     { label: "Colorado", value: "CO" },
     { label: "Connecticut", value: "CT" },
@@ -61,12 +61,12 @@ const Filter = ({ filterProduce }) => {
   const produceOptions = [
     { label: "Any Produce", value: "Any Produce" },
     { label: "Fruit", value: "Fruit" },
-    { label: "Veggie", value: "Veggie" },
+    { label: "Vegetable", value: "Vegetable" },
   ];
 
   const monthOptions = [
-    { label: "any month", value: "any month" },
-    { label: "current month", value: "Select Current Month" },
+    { label: "Any Month", value: "Any Month" },
+    { label: "Select Current Month", value: "Select Current Month" },
     { label: "Early January", value: "1" },
     { label: "January", value: "2" },
     { label: "Early February", value: "3" },
@@ -94,24 +94,40 @@ const Filter = ({ filterProduce }) => {
   ];
 
   const [state, setState] = useState("Select A State");
-  const [produce, setProduce] = useState("Any Produce");
+  const [type, setType] = useState("Any Produce");
   const [month, setMonth] = useState("Any Month");
 
   const handleStateChange = (event) => {
     setState(event.target.value);
-    filterProduce({
+    let data = {
       state: event.target.value,
-      produce: produce,
+      type: type,
       month: month,
-    });
+    };
+    console.log(data);
+    filterProduce(data);
   };
 
-  const handleProduceChange = (event) => {
-    setProduce(event.target.value);
+  const handleTypeChange = (event) => {
+    setType(event.target.value);
+    let data = {
+      state: state,
+      type: event.target.value,
+      month: month,
+    };
+    console.log(data);
+    filterProduce(data);
   };
 
   const handleMonthChange = (event) => {
     setMonth(event.target.value);
+    let data = {
+      state: state,
+      type: type,
+      month: event.target.value,
+    };
+    console.log(data);
+    filterProduce(data);
   };
 
   return (
@@ -131,8 +147,8 @@ const Filter = ({ filterProduce }) => {
           <Select
             cat='food'
             options={produceOptions}
-            value={produce}
-            onChange={handleProduceChange}
+            value={type}
+            onChange={handleTypeChange}
           />
         </label>
       </div>
