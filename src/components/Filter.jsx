@@ -1,111 +1,167 @@
-const Filter = () => {
+import { useState } from "react";
+import Select from "./Select";
+
+const Filter = ({ filterProduce }) => {
+  const stateOptions = [
+    { label: "Select A State", value: "Select A State" },
+    { label: "current location", value: "Use My Location" },
+    { label: "Alabama", value: "AL" },
+    { label: "Alaska", value: "AK" },
+    { label: "Arizona", value: "AZ" },
+    { label: "Arkansas", value: "AR" },
+    { label: "California", value: "CA" },
+    { label: "Colorado", value: "CO" },
+    { label: "Connecticut", value: "CT" },
+    { label: "Delaware", value: "DE" },
+    { label: "Florida", value: "FL" },
+    { label: "Georgia", value: "GA" },
+    { label: "Hawaii", value: "HI" },
+    { label: "Idaho", value: "ID" },
+    { label: "Illinois", value: "IL" },
+    { label: "Indiana", value: "IN" },
+    { label: "Iowa", value: "IA" },
+    { label: "Kansas", value: "KS" },
+    { label: "Kentucky", value: "KY" },
+    { label: "Louisiana", value: "LA" },
+    { label: "Maine", value: "ME" },
+    { label: "Maryland", value: "MD" },
+    { label: "Massachusetts", value: "MA" },
+    { label: "Michigan", value: "MI" },
+    { label: "Minnesota", value: "MN" },
+    { label: "Mississippi", value: "MS" },
+    { label: "Missouri", value: "MO" },
+    { label: "Montana", value: "MT" },
+    { label: "Nebraska", value: "NE" },
+    { label: "Nevada", value: "NV" },
+    { label: "New Hampshire", value: "NH" },
+    { label: "New Jersey", value: "NJ" },
+    { label: "New Mexico", value: "NM" },
+    { label: "New York", value: "NY" },
+    { label: "North Carolina", value: "NC" },
+    { label: "North Dakota", value: "ND" },
+    { label: "Ohio", value: "OH" },
+    { label: "Oklahoma", value: "OK" },
+    { label: "Oregon", value: "OR" },
+    { label: "Pennsylvania", value: "PN" },
+    { label: "Rhode Island", value: "RI" },
+    { label: "South Carolina", value: "SC" },
+    { label: "South Dakota", value: "SD" },
+    { label: "Tennessee", value: "TN" },
+    { label: "Texas", value: "TX" },
+    { label: "Utah", value: "UT" },
+    { label: "Vermont", value: "VT" },
+    { label: "Virginia", value: "VA" },
+    { label: "Washington", value: "WA" },
+    { label: "Washington DC", value: "DC" },
+    { label: "West Virginia", value: "WV" },
+    { label: "Wisconsin", value: "WI" },
+    { label: "Wyoming", value: "WY" },
+  ];
+
+  const produceOptions = [
+    { label: "Any Produce", value: "Any Produce" },
+    { label: "Fruit", value: "Fruit" },
+    { label: "Vegetable", value: "Vegetable" },
+  ];
+
+  const monthOptions = [
+    { label: "Any Month", value: "Any Month" },
+    { label: "Select Current Month", value: "Select Current Month" },
+    { label: "Early January", value: "1" },
+    { label: "January", value: "2" },
+    { label: "Early February", value: "3" },
+    { label: "February", value: "4" },
+    { label: "Early March", value: "5" },
+    { label: "March", value: "6" },
+    { label: "Early April", value: "7" },
+    { label: "April", value: "8" },
+    { label: "Early May", value: "9" },
+    { label: "May", value: "10" },
+    { label: "Early June", value: "11" },
+    { label: "June", value: "12" },
+    { label: "Early July", value: "13" },
+    { label: "July", value: "14" },
+    { label: "Early August", value: "15" },
+    { label: "August", value: "16" },
+    { label: "Early September", value: "17" },
+    { label: "September", value: "18" },
+    { label: "Early October", value: "19" },
+    { label: "October", value: "20" },
+    { label: "Early November", value: "21" },
+    { label: "November", value: "22" },
+    { label: "Early December", value: "23" },
+    { label: "December", value: "24" },
+  ];
+
+  const [state, setState] = useState("Select A State");
+  const [type, setType] = useState("Any Produce");
+  const [month, setMonth] = useState("Any Month");
+
+  const handleStateChange = (event) => {
+    setState(event.target.value);
+    let data = {
+      state: event.target.value,
+      type: type,
+      month: month,
+    };
+    console.log(data);
+    filterProduce(data);
+  };
+
+  const handleTypeChange = (event) => {
+    setType(event.target.value);
+    let data = {
+      state: state,
+      type: event.target.value,
+      month: month,
+    };
+    console.log(data);
+    filterProduce(data);
+  };
+
+  const handleMonthChange = (event) => {
+    setMonth(event.target.value);
+    let data = {
+      state: state,
+      type: type,
+      month: event.target.value,
+    };
+    console.log(data);
+    filterProduce(data);
+  };
+
   return (
     <section className='filter'>
-      <form action='' method=''>
-        <div className='container'>
-          <label htmlFor='state'>
-            <select name='state' id='state'>
-              <option value='' disabled selected>
-                Select A State
-              </option>
-              <option value='current location'>Use My Location</option>
-              <option value='Alabama'>Alabama</option>
-              <option value='Alaska'>Alaska</option>
-              <option value='Arizona'>Arizona</option>
-              <option value='Arkansas'>Arkansas</option>
-              <option value='California'>California</option>
-              <option value='Colorado'>Colorado</option>
-              <option value='Connecticut'>Connecticut</option>
-              <option value='Delaware'>Delaware</option>
-              <option value='Florida'>Florida</option>
-              <option value='Georgia'>Georgia</option>
-              <option value='Guam'>Guam</option>
-              <option value='Hawaii'>Hawaii</option>
-              <option value='Idaho'>Idaho</option>
-              <option value='Illinois'>Illinois</option>
-              <option value='Indiana'>Indiana</option>
-              <option value='Iowa'>Iowa</option>
-              <option value='Kansas'>Kansas</option>
-              <option value='Kentucky'>Kentucky</option>
-              <option value='Louisiana'>Louisiana</option>
-              <option value='Maine'>Maine</option>
-              <option value='Maryland'>Maryland</option>
-              <option value='Massachusetts'>Massachusetts</option>
-              <option value='Michigan'>Michigan</option>
-              <option value='Minnesota'>Minnesota</option>
-              <option value='Mississippi'>Mississippi</option>
-              <option value='Missouri'>Missouri</option>
-              <option value='Montana'>Montana</option>
-              <option value='Nebraska'>Nebraska</option>
-              <option value='Nevada'>Nevada</option>
-              <option value='New Hampshire'>New Hampshire</option>
-              <option value='New Jersey'>New Jersey</option>
-              <option value='New Mexico'>New Mexico</option>
-              <option value='New York'>New York</option>
-              <option value='North Carolina'>North Carolina</option>
-              <option value='North Dakota'>North Dakota</option>
-              <option value='Ohio'>Ohio</option>
-              <option value='Oklahoma'>Oklahoma</option>
-              <option value='Oregon'>Oregon</option>
-              <option value='Pennsylvania'>Pennsylvania</option>
-              <option value='Rhode Island'>Rhode Island</option>
-              <option value='South Carolina'>South Carolina</option>
-              <option value='South Dakota'>South Dakota</option>
-              <option value='Tennessee'>Tennessee</option>
-              <option value='Texas'>Texas</option>
-              <option value='Utah'>Utah</option>
-              <option value='Vermont'>Vermont</option>
-              <option value='Virginia'>Virginia</option>
-              <option value='Washington'>Washington</option>
-              <option value='Washington DC'>Washington DC</option>
-              <option value='West Virginia'>West Virginia</option>
-              <option value='Wisconsin'>Wisconsin</option>
-              <option value='Wyoming'>Wyoming</option>
-            </select>
-          </label>
-        </div>
-        <div className='container'>
-          <label htmlFor='food'>
-            <select name='food' id='food'>
-              <option value='Any'>Any Produce</option>
-              <option value='Fruits'>Fruits</option>
-              <option value='Veggies'>Veggies</option>
-            </select>
-          </label>
-        </div>
-        <div className='container'>
-          <label htmlFor='Month'>
-            <select name='month' id='month'>
-              <option value='any month'>Any Month</option>
-              <option value='current month'>Select Current Month</option>
-              <option value='Early January'>Early January</option>
-              <option value='Late January'>January</option>
-              <option value='Early February'>Early February</option>
-              <option value='Late February'>February</option>
-              <option value='Early March'>Early March</option>
-              <option value='Late March'>March</option>
-              <option value='Early April'>Early April</option>
-              <option value='Late April'>April</option>
-              <option value='Early May'>Early May</option>
-              <option value='Late May'>May</option>
-              <option value='Early June'>Early June</option>
-              <option value='Late June'>June</option>
-              <option value='Early July'>Early July</option>
-              <option value='Late July'>July</option>
-              <option value='Early August'>Early August</option>
-              <option value='Late August'>August</option>
-              <option value='Early September'>Early September</option>
-              <option value='Late September'>September</option>
-              <option value='Early October'>Early October</option>
-              <option value='Late October'>October</option>
-              <option value='Early November'>Early November</option>
-              <option value='Late November'>November</option>
-              <option value='Early December'>Early December</option>
-              <option value='Late December'>December</option>
-            </select>
-          </label>
-        </div>
-      </form>
+      <div className='container'>
+        <label>
+          <Select
+            cat='state'
+            options={stateOptions}
+            value={state}
+            onChange={handleStateChange}
+          />
+        </label>
+      </div>
+      <div className='container'>
+        <label>
+          <Select
+            cat='food'
+            options={produceOptions}
+            value={type}
+            onChange={handleTypeChange}
+          />
+        </label>
+      </div>
+      <div className='container'>
+        <label>
+          <Select
+            cat='moth'
+            options={monthOptions}
+            value={month}
+            onChange={handleMonthChange}
+          />
+        </label>
+      </div>
     </section>
   );
 };
