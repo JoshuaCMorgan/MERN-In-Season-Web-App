@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Select from "./Select";
 
-const Filter = () => {
+const Filter = ({ filterProduce }) => {
   const stateOptions = [
     { label: "Select A State", value: "Select A State" },
     { label: "current location", value: "Use My Location" },
@@ -99,7 +99,11 @@ const Filter = () => {
 
   const handleStateChange = (event) => {
     setState(event.target.value);
-    console.log(event.target.value);
+    filterProduce({
+      state: event.target.value,
+      produce: produce,
+      month: month,
+    });
   };
 
   const handleProduceChange = (event) => {

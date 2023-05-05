@@ -1,4 +1,4 @@
-const Selection = ({ produce }) => {
+const Selections = ({ produce }) => {
   return (
     <section className='produceQuery'>
       <h1>Your Selection: </h1>
@@ -20,4 +20,4 @@ const Selection = ({ produce }) => {
   );
 };
 
-export default Selection;
+export default Selections;
