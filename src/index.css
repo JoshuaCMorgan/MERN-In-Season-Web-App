@@ -162,8 +162,10 @@ Filter
   width: 900px;
 }
 .container {
-  padding: 10px;
+  padding: 7px;
   flex: 1 1 auto;
+  max-width: 300px;
+  min-width: 200px;
 }
 
 .filter select {
@@ -180,14 +182,18 @@ Filter
   .filter {
     padding-top: 5px;
   }
-  .filter form {
+  .filter {
     margin: 0 4rem;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
 
-  form .container:last-child {
+  .filter .container {
+    width: 275px;
+  }
+
+  .container:last-child {
     padding-bottom: 20px;
   }
 }

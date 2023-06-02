@@ -17,6 +17,7 @@ export const links = [
     url: "/availability-calendar",
     text: "availability calendar",
   },
+  { id: 4, url: "/shopping-list", text: "shopping list" },
 ];
 
 export const social = [
