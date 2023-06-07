@@ -104,7 +104,7 @@ const Filter = ({ filterProduce }) => {
       type: type,
       month: month,
     };
-    console.log(data);
+
     filterProduce(data);
   };
 
@@ -115,7 +115,7 @@ const Filter = ({ filterProduce }) => {
       type: event.target.value,
       month: month,
     };
-    console.log(data);
+
     filterProduce(data);
   };
 
@@ -126,36 +126,36 @@ const Filter = ({ filterProduce }) => {
       type: type,
       month: event.target.value,
     };
-    console.log(data);
+
     filterProduce(data);
   };
 
   return (
-    <section className='filter'>
-      <div className='container'>
+    <section className="filter">
+      <div className="container">
         <label>
           <Select
-            cat='state'
+            cat="state"
             options={stateOptions}
             value={state}
             onChange={handleStateChange}
           />
         </label>
       </div>
-      <div className='container'>
+      <div className="container">
         <label>
           <Select
-            cat='food'
+            cat="food"
             options={produceOptions}
             value={type}
             onChange={handleTypeChange}
           />
         </label>
       </div>
-      <div className='container'>
+      <div className="container">
         <label>
           <Select
-            cat='moth'
+            cat="moth"
             options={monthOptions}
             value={month}
             onChange={handleMonthChange}
