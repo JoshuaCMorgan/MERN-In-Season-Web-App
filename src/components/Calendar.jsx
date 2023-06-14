@@ -24,7 +24,7 @@ const CalendarControls = styled.div({
 const CalendarTable = styled.div({
   display: "flex",
   flexDirection: "column",
-  width: "100%",
+  width: "20rem",
 });
 
 const CalendarRow = styled.div({
