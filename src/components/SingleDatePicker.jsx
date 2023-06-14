@@ -6,6 +6,7 @@ import moment from "moment";
 import { Calendar } from "./Calendar";
 import { DatePickerCell } from "./DatePickerCell";
 import { DropdownWindow } from "./DropdownWindow";
+import { FaCalendarDay } from "react-icons/fa";
 
 const Container = styled.div({
   position: "relative",
@@ -13,10 +14,12 @@ const Container = styled.div({
 
 const DateInput = styled.input({
   cursor: "pointer",
-  padding: ".85em",
+  padding: ".70em",
   borderRadius: "4px",
   width: "100%",
+  fontSize: "1rem",
 });
+
 const CalendarContainer = styled.div({
   height: "fit-content",
   width: "fit-content",
@@ -40,14 +43,27 @@ export const SingleDatePicker = ({ selectedDate, onDateSelected }) => {
 
   return (
     <Container>
-      <DateInput
-        readOnly
-        onClick={() => setShouldShowDropdown(true)}
-        value={
-          selectedDateMoment ? selectedDateMoment.format("MM/DD/YYYY") : ""
-        }
-        placeholder={today.format("MM/DD/YYYY")}
-      />
+      <div style={{ position: "relative" }}>
+        <span
+          style={{
+            position: "absolute",
+            top: "11px",
+            left: "85%",
+            fontSize: "22px",
+          }}
+        >
+          <FaCalendarDay />
+        </span>
+        <DateInput
+          readOnly
+          onClick={() => setShouldShowDropdown(true)}
+          value={
+            selectedDateMoment ? selectedDateMoment.format("MM/DD/YYYY") : ""
+          }
+          placeholder={today.format("MM/DD/YYYY")}
+        />
+      </div>
+
       <DropdownWindow
         shouldShow={shouldShowDropdown}
         onRequestClose={() => {

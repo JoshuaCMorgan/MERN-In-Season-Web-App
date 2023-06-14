@@ -169,9 +169,11 @@ Filter
 }
 
 .filter select {
-  padding: 0.85em;
+  -webkit-appearance: none;
+  padding: 0.7em;
   border-radius: 4px;
   width: 100%;
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 610px) {

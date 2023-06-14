@@ -2,6 +2,7 @@ import { useState } from "react";
 import Select from "./Select";
 import moment from "moment";
 import { SingleDatePicker } from "./SingleDatePicker";
+import { FaChevronCircleDown } from "react-icons/fa";
 
 const Filter = ({ filterProduce }) => {
   const stateOptions = [
@@ -134,7 +135,18 @@ const Filter = ({ filterProduce }) => {
 
   return (
     <section className="filter">
-      <div className="container">
+      <div className="container" style={{ position: "relative" }}>
+        <span
+          style={{
+            position: "absolute",
+            top: "16px",
+            left: "80%",
+            fontSize: "25px",
+            fontWeight: "200",
+          }}
+        >
+          <FaChevronCircleDown />
+        </span>
         <label>
           <Select
             cat="state"
@@ -144,7 +156,18 @@ const Filter = ({ filterProduce }) => {
           />
         </label>
       </div>
-      <div className="container">
+      <div className="container" style={{ position: "relative" }}>
+        <span
+          style={{
+            position: "absolute",
+            top: "16px",
+            left: "80%",
+            fontSize: "25px",
+            fontWeight: "200",
+          }}
+        >
+          <FaChevronCircleDown />
+        </span>
         <label>
           <Select
             cat="food"
