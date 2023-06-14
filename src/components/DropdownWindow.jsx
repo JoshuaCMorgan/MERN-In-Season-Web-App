@@ -23,8 +23,11 @@ const Window = styled.div({
   left: "50%",
   right: "50%",
   zIndex: "2",
-  marginLeft: "-180px",
+  marginLeft: "-270px",
   marginTop: "100px",
+  "@media (max-width: 991px)": {
+    marginLeft: "-180px",
+  },
 });
 
 export const DropdownWindow = ({ children, shouldShow, onRequestClose }) => {

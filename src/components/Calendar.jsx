@@ -2,6 +2,7 @@
 import { jsx } from "@emotion/react";
 import styled from "@emotion/styled";
 import moment from "moment";
+import * as mq from "../styles/media-queries";
 
 import {
   getDaysInMonth,
@@ -15,6 +16,7 @@ const CalendarControls = styled.div({
   margin: "auto",
   maxWidth: "400px",
   textAlign: "center",
+  marginBottom: "10px",
   button: {
     width: "45%",
     margin: "0 2%",
@@ -24,7 +26,10 @@ const CalendarControls = styled.div({
 const CalendarTable = styled.div({
   display: "flex",
   flexDirection: "column",
-  width: "20rem",
+  width: "30rem",
+  "@media (max-width: 991px)": {
+    width: "20rem",
+  },
 });
 
 const CalendarRow = styled.div({
