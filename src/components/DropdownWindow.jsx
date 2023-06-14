@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from "@emotion/react";
 import styled from "@emotion/styled";
-
+import { useRef } from "react";
 const TransparentBackground = styled.div({
   position: "fixed",
   zIndex: "1",
@@ -20,16 +20,25 @@ const Window = styled.div({
   padding: "20px",
   width: "fit-content",
   position: "absolute",
+  left: "50%",
+  right: "50%",
   zIndex: "2",
+  marginLeft: "-300px",
+  marginTop: "100px",
 });
 
 export const DropdownWindow = ({ children, shouldShow, onRequestClose }) => {
+  const windowRef = useRef(null);
+
   return (
     <>
       {shouldShow && (
         <>
-          <TransparentBackground onClick={onRequestClose} />
-          <Window onClick={(e) => e.stopPropagation()}>{children}</Window>
+          <TransparentBackground onClick={onRequestClose}>
+            <Window ref={windowRef} onClick={(e) => e.stopPropagation()}>
+              {children}
+            </Window>
+          </TransparentBackground>
         </>
       )}
     </>
