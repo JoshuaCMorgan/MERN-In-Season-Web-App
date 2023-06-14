@@ -13,6 +13,9 @@ const Container = styled.div({
 
 const DateInput = styled.input({
   cursor: "pointer",
+  padding: ".85em",
+  borderRadius: "4px",
+  width: "100%",
 });
 const CalendarContainer = styled.div({
   height: "400px",
