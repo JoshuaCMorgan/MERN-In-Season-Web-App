@@ -18,8 +18,8 @@ const DateInput = styled.input({
   width: "100%",
 });
 const CalendarContainer = styled.div({
-  height: "400px",
-  width: "600px",
+  height: "fit-content",
+  width: "fit-content",
 });
 
 export const SingleDatePicker = ({ selectedDate, onDateSelected }) => {

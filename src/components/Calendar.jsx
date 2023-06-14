@@ -47,11 +47,6 @@ const CalendarCellWrap = styled.div({
   flex: "1",
 });
 
-/** 
-@param {month} String 2 numerial characters representing month
-@param {year} String 4 numerial characters representing year
-**/
-
 export const Calendar = ({
   onCellClicked,
   month,

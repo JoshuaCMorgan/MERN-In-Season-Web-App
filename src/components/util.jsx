@@ -33,13 +33,13 @@ export const segmentIntoWeeks = (dayMoments) => {
 };
 
 export const daysOfTheWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
+  "Sun",
+  "Mon",
+  "Tues",
+  "Wed",
+  "Thurs",
+  "Fri",
+  "Sat",
 ];
 
 export const padWeekFront = (week, padWidth = null) => {

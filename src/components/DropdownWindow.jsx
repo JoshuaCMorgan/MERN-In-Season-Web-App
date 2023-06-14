@@ -23,7 +23,7 @@ const Window = styled.div({
   left: "50%",
   right: "50%",
   zIndex: "2",
-  marginLeft: "-300px",
+  marginLeft: "-237px",
   marginTop: "100px",
 });
 
