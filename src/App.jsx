@@ -10,7 +10,8 @@ const App = () => {
 
   function filterProduce(query) {
     let produceByType = produceData.reduce((accum, currentItem) => {
-      let { type } = query;
+      let { type, month, state } = query;
+      console.log({ type, month, state });
       if (type === "Any Produce") {
         accum.push(currentItem);
       } else if (currentItem.type === type) {
@@ -33,12 +34,20 @@ const App = () => {
     let produceByTypeStateMonth = produceByTypeState.reduce(
       (accum, currentItem) => {
         let { month, state } = query;
-        let monthInt = Number(month);
-        if (month === "Any Month") {
+        console.log(month);
+        if (month === null) {
           accum.push(currentItem);
-        } else if (state.length > 2) {
+          return accum;
+        }
+        let [mm, dd] = month.format("MM/DD").split("/");
+        let season = mm * 2;
+        if (dd <= 15) {
+          season -= 1;
+        }
+        console.log({ season, dd, state });
+        if (state.length > 2) {
           accum.push(currentItem);
-        } else if (currentItem.states[state].seasons.includes(monthInt)) {
+        } else if (currentItem.states[state].seasons.includes(season)) {
           accum.push(currentItem);
         }
         return accum;

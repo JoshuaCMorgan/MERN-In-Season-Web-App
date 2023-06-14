@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Select from "./Select";
+import moment from "moment";
+import { SingleDatePicker } from "./SingleDatePicker";
 
 const Filter = ({ filterProduce }) => {
   const stateOptions = [
@@ -95,14 +97,25 @@ const Filter = ({ filterProduce }) => {
 
   const [state, setState] = useState("Select A State");
   const [type, setType] = useState("Any Produce");
-  const [month, setMonth] = useState("Any Month");
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const onDateSelected = (date, month, year) => {
+    setSelectedDate(moment(`${date}${month}${year}`, "DDMMYYYY"));
+    let data = {
+      state: state,
+      type: type,
+      month: moment(`${month}${date}`, "MMDD"),
+    };
+
+    filterProduce(data);
+  };
 
   const handleStateChange = (event) => {
     setState(event.target.value);
     let data = {
       state: event.target.value,
       type: type,
-      month: month,
+      month: selectedDate,
     };
 
     filterProduce(data);
@@ -113,18 +126,7 @@ const Filter = ({ filterProduce }) => {
     let data = {
       state: state,
       type: event.target.value,
-      month: month,
-    };
-
-    filterProduce(data);
-  };
-
-  const handleMonthChange = (event) => {
-    setMonth(event.target.value);
-    let data = {
-      state: state,
-      type: type,
-      month: event.target.value,
+      month: selectedDate,
     };
 
     filterProduce(data);
@@ -153,14 +155,10 @@ const Filter = ({ filterProduce }) => {
         </label>
       </div>
       <div className="container">
-        <label>
-          <Select
-            cat="moth"
-            options={monthOptions}
-            value={month}
-            onChange={handleMonthChange}
-          />
-        </label>
+        <SingleDatePicker
+          selectedDate={selectedDate ? selectedDate.format("DDMMYYYY") : ""}
+          onDateSelected={onDateSelected}
+        />
       </div>
     </section>
   );
