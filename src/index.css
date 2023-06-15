@@ -199,7 +199,15 @@ Filter
     padding-bottom: 20px;
   }
 }
-
+/*
+=============== 
+Main
+===============
+*/
+.produceQuery h1 {
+  text-align: center;
+  margin: 15px;
+}
 /*
 =============== 
 Footer
