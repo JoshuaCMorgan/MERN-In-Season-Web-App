@@ -11,7 +11,9 @@ const Selections = ({ produce }) => {
                 <img src="" alt="" />
               </figure>
               <p>{item.desc}</p>
-              <button>Add to Shopping List</button>
+              <button type="button" className="btn">
+                Add to Shopping List
+              </button>
             </li>
           );
         })}

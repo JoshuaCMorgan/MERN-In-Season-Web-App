@@ -221,7 +221,7 @@ Main
 .produceQuery li {
   text-align: center;
   border: 1px solid #b7b5b5;
-  background-color: var(--grey-300);
+  background-color: var(--grey-200);
   border-radius: 5px;
   width: 240px;
   padding: 1rem;
@@ -229,14 +229,6 @@ Main
 
 .item-container p {
   margin-bottom: 1rem;
-}
-
-.item-container button {
-  padding: 4px 8px;
-  border-radius: 4px;
-  width: fit-content;
-  background-color: var(--grey-200);
-  border: 0.5px solid var(--grey-500);
 }
 
 .item-container {
