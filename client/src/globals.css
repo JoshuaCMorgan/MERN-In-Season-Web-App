@@ -140,6 +140,10 @@ ul {
   padding: 0;
 }
 
+.full-page {
+  min-height: 100vh;
+}
+
 .img {
   width: 100%;
   display: block;
