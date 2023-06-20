@@ -12,12 +12,13 @@ export const links = [
     url: "/about",
     text: "about",
   },
-  {
-    id: 3,
-    url: "/availability-calendar",
-    text: "availability calendar",
-  },
+  // {
+  //   id: 3,
+  //   url: "/availability-calendar",
+  //   text: "availability calendar",
+  // },
   { id: 4, url: "/shopping-list", text: "shopping list" },
+  { id: 5, url: "/register", text: "account" },
 ];
 
 export const social = [
