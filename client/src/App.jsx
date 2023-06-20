@@ -1,4 +1,4 @@
-import { Home, Error } from "./pages/index";
+import { Home, Error, Register } from "./pages/index";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -6,9 +6,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/register" element={<Register />} />
-        <Route path="/error" element={<Error />} />
-        <Route path="/shopping-list" element={<ShoppingList />} /> */}
+        <Route path="/register" element={<Register />} />
+        {/* <Route path="/shopping-list" element={<ShoppingList />} /> */}
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

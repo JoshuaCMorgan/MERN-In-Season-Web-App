@@ -11,7 +11,7 @@ const initialState = {
   isMember: true,
 };
 
-function Register() {
+export function Register() {
   const [values, setValues] = useState(initialState);
 
   const handleChange = (e) => {
