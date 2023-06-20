@@ -25,21 +25,22 @@ const imgCss = css({
   marginBottom: "2rem",
 });
 
-const pCss = {
+const pCss = css({
   marginTop: "0",
   marginBottom: "0.5rem",
   color: "var(--grey-500)",
-};
+});
 
-const linkCss = {
+const linkCss = css({
   color: "var(--primary-500)",
   textDecoration: "underline",
   textTransform: "capitalize",
-};
+});
 
-const h3Css = {
+const h3Css = css({
   marginBottom: "0.5rem",
-};
+});
+
 const Wrapper = styled.main({
   textAlign: "center",
   display: "flex",
