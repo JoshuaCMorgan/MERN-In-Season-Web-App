@@ -2,7 +2,7 @@
 import { jsx, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { Logo, FormRow } from "../components/index";
+import { Logo, FormRow, Alert } from "../components/index";
 import logo from "../assets/images/myLogo.svg";
 
 let initialState = {
@@ -10,6 +10,7 @@ let initialState = {
   email: "",
   password: "",
   isMember: false,
+  showAlert: false,
 };
 
 export const Register = () => {
@@ -31,7 +32,7 @@ export const Register = () => {
         <Logo cssOverrides={logoCss} />
 
         <h3 css={h3Css}>{values.isMember ? "Login" : "Register"}</h3>
-        {/* {showAlert && <Alert />} */}
+        {values.showAlert && <Alert />}
         {values.isMember && (
           <FormRow
             type="name"
