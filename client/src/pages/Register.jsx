@@ -15,6 +15,9 @@ let initialState = {
 export const Register = () => {
   const [values, setValues] = useState(initialState);
 
+  const toggleMember = () => {
+    setValues({ ...values, isMember: !values.isMember });
+  };
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -29,12 +32,14 @@ export const Register = () => {
 
         <h3 css={h3Css}>{values.isMember ? "Login" : "Register"}</h3>
         {/* {showAlert && <Alert />} */}
-        <FormRow
-          type="name"
-          name="name"
-          value={values.name}
-          handleChange={handleChange}
-        />
+        {values.isMember && (
+          <FormRow
+            type="name"
+            name="name"
+            value={values.name}
+            handleChange={handleChange}
+          />
+        )}
         <FormRow
           type="email"
           name="email"
@@ -50,8 +55,13 @@ export const Register = () => {
         <button css={buttonCss} type="button" className="btn btn-block">
           submit
         </button>
-        <p css={pCss}></p>
-        <button css={memberCss}></button>
+        <p css={pCss}>
+          {" "}
+          {values.isMember ? "Not a member yet?" : "Already a member?"}
+          <button type="button" onClick={toggleMember} css={memberCss}>
+            {values.isMember ? "Register" : "Login"}
+          </button>
+        </p>
       </form>
     </Wrapper>
   );
@@ -71,9 +81,22 @@ const formCss = css({
 const h3Css = css({
   textAlign: "center",
 });
-const pCss = css({});
-const buttonCss = css({});
-const memberCss = css({});
+const pCss = css({
+  margin: "0",
+  marginTop: "1rem",
+  textAlign: "center",
+});
+const buttonCss = css({
+  marginTop: "1rem",
+});
+const memberCss = css({
+  background: "transparent",
+  border: "transparent",
+  color: "var(--primary-500)",
+  cursor: "pointer",
+  letterSpacing: "var(--letterSpacing)",
+  padding: "1px 6px",
+});
 
 const Wrapper = styled.section({
   display: "grid",
