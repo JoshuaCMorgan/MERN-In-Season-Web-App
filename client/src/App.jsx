@@ -1,5 +1,5 @@
 import { Home, Error, Register } from "./pages/index";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
