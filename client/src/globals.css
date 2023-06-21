@@ -43,6 +43,11 @@ html {
   --carribean-current: #3c6e71;
   --asparagus: #70ae6e;
   --green-yellow: #beee62;
+  /* alert */
+  --red-light: #f8d7da;
+  --red-dark: #842029;
+  --green-light: #d1e7dd;
+  --green-dark: #0f5132;
 
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
