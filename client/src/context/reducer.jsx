@@ -1,4 +1,5 @@
-import { DISPLAY_ALERT } from "./actions";
+import { DISPLAY_ALERT, CLEAR_ALERT } from "./actions";
+
 export const reducer = (state, action) => {
   if (action.type === DISPLAY_ALERT) {
     return {
@@ -9,5 +10,14 @@ export const reducer = (state, action) => {
     };
   }
 
-  throw new Error(`no such action: ${action.type}`);
+  if (action.type === CLEAR_ALERT) {
+    return {
+      ...state,
+      showAlert: false,
+      alertType: "",
+      alertText: "",
+    };
+  }
+
+  throw new Error(`no such action buddy: ${action.type}`);
 };
