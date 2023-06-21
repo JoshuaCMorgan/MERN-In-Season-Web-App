@@ -3,29 +3,37 @@ import { jsx, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState, useEffect } from "react";
 import { Logo, FormRow, Alert } from "../components";
+import { useAppContext } from "../context/appContext";
 
 const initialState = {
   name: "",
   email: "",
   password: "",
   isMember: true,
-  showAlert: true,
 };
 
 export function Register() {
   const [values, setValues] = useState(initialState);
+
+  const { isLoading, showAlert, displayAlert } = useAppContext();
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
 
   const handleChange = (e) => {
-    console.log(e.target);
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    const { name, email, password, isMember } = values;
+    if (!email || !password || (!isMember && !name)) {
+      displayAlert();
+      return;
+    }
+
+    console.log(values);
   };
 
   return (
@@ -33,7 +41,7 @@ export function Register() {
       <form css={formCss} className="form" onSubmit={onSubmit}>
         <Logo cssOverrides={logoCss} />
         <h3 css={h3Css}>{values.isMember ? "Login" : "Register"}</h3>
-        {values.showAlert && <Alert />}
+        {showAlert && <Alert />}
         {values.isMember && (
           <FormRow
             type="name"
