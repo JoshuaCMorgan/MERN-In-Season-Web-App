@@ -9,9 +9,9 @@ export const Home = () => {
   const [produce, setProduce] = useState(produceData);
 
   function filterProduce(query) {
+    let { type, month, state } = query;
+    console.log({ type, month, state });
     let produceByType = produceData.reduce((accum, currentItem) => {
-      let { type, month, state } = query;
-      console.log({ type, month, state });
       if (type === "Any Produce") {
         accum.push(currentItem);
       } else if (currentItem.type === type) {
@@ -33,8 +33,6 @@ export const Home = () => {
 
     let produceByTypeStateMonth = produceByTypeState.reduce(
       (accum, currentItem) => {
-        let { month, state } = query;
-        console.log(month);
         if (month === null) {
           accum.push(currentItem);
           return accum;
