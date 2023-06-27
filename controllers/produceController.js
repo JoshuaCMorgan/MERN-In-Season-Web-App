@@ -40,7 +40,7 @@ const getAllProduce = async (req, res) => {
   const queryObject = {};
   console.log(req.query);
   const produce = await Produce.find(req.query);
-  console.log(produce);
+  // console.log(produce);
   res.status(200).json({ msg: "testing" });
 };
 
