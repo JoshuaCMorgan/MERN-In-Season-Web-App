@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server"
+    "server": "nodemon server",
+    "client": "npm run dev --prefix client",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \" npm run client\""
   },
   "keywords": [],
   "author": "",
