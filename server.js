@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/v1", (req, res) => {
-  res.json({ msg: "API!" });
+  res.json({ msg: "We are working on making a connection. check back soon" });
   // res.send("hello");
 });
 
