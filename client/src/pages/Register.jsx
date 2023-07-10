@@ -15,7 +15,7 @@ const initialState = {
 export function Register() {
   const [values, setValues] = useState(initialState);
 
-  const { isLoading, showAlert, displayAlert } = useAppContext();
+  const { isLoading, showAlert, displayAlert, registerUser } = useAppContext();
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
@@ -33,7 +33,12 @@ export function Register() {
       return;
     }
 
-    console.log(values);
+    const currentUser = { name, email, password };
+    if (isMember) {
+      console.log("already a member");
+    } else {
+      registerUser(currentUser);
+    }
   };
 
   return (
@@ -42,7 +47,7 @@ export function Register() {
         <Logo cssOverrides={logoCss} />
         <h3 css={h3Css}>{values.isMember ? "Login" : "Register"}</h3>
         {showAlert && <Alert />}
-        {values.isMember && (
+        {!values.isMember && (
           <FormRow
             type="name"
             value={values.name}
@@ -64,7 +69,12 @@ export function Register() {
           handleChange={handleChange}
         />
 
-        <button css={btnCss} type="submit" className="btn btn-block">
+        <button
+          css={btnCss}
+          type="submit"
+          className="btn btn-block"
+          disabled={isLoading}
+        >
           submit
         </button>
         <p css={pCss}>
