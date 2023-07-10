@@ -101,11 +101,13 @@ const Filter = ({ filterProduce }) => {
   const [selectedDate, setSelectedDate] = useState(null);
 
   const onDateSelected = (date, month, year) => {
-    setSelectedDate(moment(`${date}${month}${year}`, "DDMMYYYY"));
+    console.log({ date, month, year });
+
+    setSelectedDate(moment(`${year}${month}${date}`));
     let data = {
       state: state,
       type: type,
-      month: moment(`${month}${date}`, "MMDD"),
+      month: `${month}/${date}`,
     };
 
     filterProduce(data);
@@ -113,10 +115,12 @@ const Filter = ({ filterProduce }) => {
 
   const handleStateChange = (event) => {
     setState(event.target.value);
+    let newMonth = selectedDate.format("MM/DD");
+    console.log({ newMonth });
     let data = {
       state: event.target.value,
       type: type,
-      month: selectedDate,
+      month: selectedDate ? selectedDate.format("MM/DD") : selectedDate,
     };
 
     filterProduce(data);
@@ -127,7 +131,7 @@ const Filter = ({ filterProduce }) => {
     let data = {
       state: state,
       type: event.target.value,
-      month: selectedDate,
+      month: selectedDate ? selectedDate.format("MM/DD") : selectedDate,
     };
 
     filterProduce(data);

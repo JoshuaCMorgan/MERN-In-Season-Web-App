@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Filter from "../components/Filter";
@@ -8,13 +9,12 @@ import produceData from "../produceData";
 export const Home = () => {
   const [produce, setProduce] = useState(produceData);
 
-  const fetchData = async () => {
+  const fetchData = async (query) => {
+    console.log({ query });
     try {
-      const response = await fetch("/api/v1");
+      const response = await axios.get("/api/v1/produce", { params: query });
       console.log(response);
-      const data = await response.json();
-      console.log("inside dashboard");
-      console.log({ data });
+      setProduce(response.data.produce);
     } catch (error) {
       console.log(error);
     }
@@ -68,17 +68,16 @@ export const Home = () => {
   //   setProduce(produceByTypeStateMonth);
   // }
 
-  useEffect(() => {
-    console.log("hello");
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <React.Fragment>
       <Navbar />
       <header>
         <Hero />
-        <Filter filterProduce={filterProduce} />
+        <Filter filterProduce={fetchData} />
       </header>
       <main>
         <Selections produce={produce} />
