@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Logo, FormRow, Alert } from "../components";
 import { useAppContext } from "../context/appContext";
 import { useNavigate } from "react-router-dom";
+
 const initialState = {
   name: "",
   email: "",
