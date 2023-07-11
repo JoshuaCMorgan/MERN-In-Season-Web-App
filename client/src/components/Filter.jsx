@@ -115,8 +115,7 @@ const Filter = ({ filterProduce }) => {
 
   const handleStateChange = (event) => {
     setState(event.target.value);
-    let newMonth = selectedDate.format("MM/DD");
-    console.log({ newMonth });
+
     let data = {
       state: event.target.value,
       type: type,
