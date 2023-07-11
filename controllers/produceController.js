@@ -29,7 +29,6 @@ const getAllProduceStatic = async (req, res) => {
     queryObject.type = type;
   }
 
-  console.log({ queryObject });
   const produce = await Produce.find(queryObject);
 
   res.status(200).json({ produce, nbHits: produce.length });
@@ -37,7 +36,7 @@ const getAllProduceStatic = async (req, res) => {
 
 const getAllProduce = async (req, res) => {
   const { state, type, month } = req.query;
-  console.log({ state, type, month });
+
   const queryObject = {};
   let states;
 
@@ -65,7 +64,6 @@ const getAllProduce = async (req, res) => {
     queryObject.type = type;
   }
 
-  console.log({ queryObject });
   const produce = await Produce.find(queryObject);
 
   res.status(200).json({ produce, nbHits: produce.length });
