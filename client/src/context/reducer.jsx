@@ -1,9 +1,9 @@
 import {
   DISPLAY_ALERT,
   CLEAR_ALERT,
-  REGISTER_USER_BEGIN,
-  REGISTER_USER_SUCCESS,
-  REGISTER_USER_ERROR,
+  SETUP_USER_BEGIN,
+  SETUP_USER_SUCCESS,
+  SETUP_USER_ERROR,
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -25,14 +25,27 @@ export const reducer = (state, action) => {
     };
   }
 
-  if (action.type === REGISTER_USER_BEGIN) {
+  if (action.type === SETUP_USER_BEGIN) {
     return {
       ...state,
       isLoading: true,
     };
   }
 
-  if (action.type === REGISTER_USER_ERROR) {
+  if (action.type === SETUP_USER_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      user: action.payload.user,
+      token: action.payload.token,
+      userLocation: action.payload.location,
+      showAlert: true,
+      alertType: "success",
+      alertText: action.payload.alertText,
+    };
+  }
+
+  if (action.type === SETUP_USER_ERROR) {
     return {
       ...state,
       isLoading: false,
@@ -41,19 +54,5 @@ export const reducer = (state, action) => {
       alertText: action.payload.msg,
     };
   }
-
-  if (action.type === REGISTER_USER_SUCCESS) {
-    return {
-      ...state,
-      isLoading: false,
-      token: action.payload.token,
-      user: action.payload.user,
-      userLocation: action.payload.location,
-      showAlert: true,
-      alertType: "success",
-      alertText: "User Created! Redirecting...",
-    };
-  }
-
   throw new Error(`no such action buddy: ${action.type}`);
 };
