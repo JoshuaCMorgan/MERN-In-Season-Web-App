@@ -101,7 +101,7 @@ const Filter = ({ filterProduce }) => {
   const [selectedDate, setSelectedDate] = useState(null);
 
   const onDateSelected = (date, month, year) => {
-    console.log({ date, month, year });
+    // console.log({ date, month, year });
 
     setSelectedDate(moment(`${year}${month}${date}`));
     let data = {
