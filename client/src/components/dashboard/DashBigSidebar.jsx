@@ -8,7 +8,7 @@ export const DashBigSidebar = () => {
   // const { showSidebar } = useAppContext();
   return (
     <aside css={asideCss}>
-      <h4>big side bar</h4>
+      <h4>big sidebar</h4>
       {/* <div
         css={
           showSidebar ? sidebarContainerCSS : [sidebarContainerCSS, showSidebar]

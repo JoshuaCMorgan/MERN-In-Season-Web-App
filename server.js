@@ -18,10 +18,11 @@ import { errorHandlerMiddleware } from "./middleware/error-handler.js";
 if (process.env.NODE_ENV != "production") {
   app.use(morgan("dev"));
 }
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json({ msg: "Welcome!" });
+  res.redirect("/home");
 });
 
 app.get("/api/v1", (req, res) => {

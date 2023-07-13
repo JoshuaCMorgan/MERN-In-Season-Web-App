@@ -7,12 +7,17 @@ import { Logo } from "../Logo";
 
 export const DashNavbar = () => {
   const [showLogout, setShowLogout] = useState(false);
+  const { toggleSidebar } = useAppContext();
 
   return (
     <nav css={navbarCss}>
-      <h4>NavBar</h4>
-      {/* <div css={navCenterCss} className="nav-center">
-        <button css={toggleBtnCss} type="button" className="toggle-btn">
+      <div css={navCenterCss} className="nav-center">
+        <button
+          css={toggleBtnCss}
+          type="button"
+          className="toggle-btn"
+          onClick={toggleSidebar}
+        >
           <FaAlignLeft />
         </button>
 
@@ -24,21 +29,32 @@ export const DashNavbar = () => {
         </div>
 
         <div css={btnContainerCss} className="btn-container">
-          <button css={btnCss} type="button" className="btn">
+          <button
+            type="button"
+            css={btnCss}
+            type="button"
+            className="btn"
+            onClick={() => setShowLogout(!showLogout)}
+          >
             <FaUserCircle />
-            josh
+            Josh
             <FaCaretDown />
           </button>
           <div
             css={showLogout ? [dropdownCss, showDropdownCss] : dropdownCss}
             className={showLogout ? "dropdown, show-dropdown" : "dropdown"}
           >
-            <button css={dropdownBtnCss} className="dropdown-btn">
+            <button
+              type="button"
+              css={dropdownBtnCss}
+              className="dropdown-btn"
+              onClick={() => console.log("logout user")}
+            >
               logout
             </button>
           </div>
         </div>
-      </div> */}
+      </div>
     </nav>
   );
 };
