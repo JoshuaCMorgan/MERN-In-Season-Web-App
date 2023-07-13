@@ -10,7 +10,7 @@ import {
   daysOfTheWeek,
   padWeekBack,
   padWeekFront,
-} from "./util";
+} from "../utils/calendarUtil";
 
 const CalendarControls = styled.div({
   margin: "auto",

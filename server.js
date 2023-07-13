@@ -35,7 +35,7 @@ app.use("/api/v1/produce", produceRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5002;
 
 const start = async () => {
   try {
