@@ -2,7 +2,7 @@
 import { jsx, css } from "@emotion/react";
 import { useState, useRef } from "react";
 import { FaBars } from "react-icons/fa";
-import { links, social } from "../data";
+import { homeLinks, social } from "../utils/linksUtil";
 import logo from "../assets/images/myLogo.svg";
 import * as mq from "../styles/media-queries";
 
@@ -41,7 +41,7 @@ const Navbar = () => {
           style={linkStyles}
         >
           <ul css={linksCss} className="links" ref={linksRef}>
-            {links.map((link) => {
+            {homeLinks.map((link) => {
               const { id, url, text } = link;
               return (
                 <li key={id}>
