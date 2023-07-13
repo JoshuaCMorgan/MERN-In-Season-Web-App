@@ -1,4 +1,4 @@
-import { links } from "../../utils/linksUtil";
+import { dashboardLinks } from "../../utils/linksUtil";
 import { NavLink } from "react-router-dom";
 
 export const DashNavLinks = ({ cssOverrides, toggleSidebar }) => {
