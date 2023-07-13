@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from "@emotion/react";
 import { useAppContext } from "../../context/appContext";
-import { NavLinks } from "./DashNavLinks";
+import { DashNavLinks } from "./DashNavLinks";
 import { Logo } from "../Logo";
 
 export const DashBigSidebar = () => {
@@ -21,7 +21,7 @@ export const DashBigSidebar = () => {
           <header css={headerCss}>
             <Logo />
           </header>
-          <NavLinks cssOverrides={navLinksCss} />
+          <DashNavLinks cssOverrides={navLinksCss} />
         </div>
       </div> */}
     </aside>

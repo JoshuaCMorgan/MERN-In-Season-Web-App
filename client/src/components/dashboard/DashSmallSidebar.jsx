@@ -2,11 +2,11 @@
 import { jsx, css } from "@emotion/react";
 import { FaTimes } from "react-icons/fa";
 import { useAppContext } from "../../context/appContext";
-import { NavLinks } from "./DashNavLinks";
+import { DashNavLinks } from "./DashNavLinks";
 import { Logo } from "./../Logo";
 
 export const DashSmallSidebar = () => {
-  // const { showSidebar, toggleSidebar } = useAppContext();
+  const { showSidebar, toggleSidebar } = useAppContext();
 
   return (
     <aside css={asideCss}>
@@ -26,7 +26,7 @@ export const DashSmallSidebar = () => {
           <header>
             <Logo />
           </header>
-          <NavLinks toggleSidebar={toggleSidebar} />
+          <DashNavLinks toggleSidebar={toggleSidebar} />
         </div>
       </div> */}
     </aside>

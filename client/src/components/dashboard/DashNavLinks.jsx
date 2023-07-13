@@ -1,7 +1,7 @@
 import { links } from "../../utils/linksUtil";
 import { NavLink } from "react-router-dom";
 
-export const NavLinks = ({ cssOverrides, toggleSidebar }) => {
+export const DashNavLinks = ({ cssOverrides, toggleSidebar }) => {
   return (
     <div css={cssOverrides} className="nav-links">
       {links.map((link) => {
