@@ -7,7 +7,7 @@ import { Logo } from "../Logo";
 
 export const DashNavbar = () => {
   const [showLogout, setShowLogout] = useState(false);
-  const { toggleSidebar } = useAppContext();
+  const { user, toggleSidebar, logoutUser } = useAppContext();
 
   return (
     <nav css={navbarCss}>
@@ -37,7 +37,7 @@ export const DashNavbar = () => {
             onClick={() => setShowLogout(!showLogout)}
           >
             <FaUserCircle />
-            Josh
+            {user?.name}
             <FaCaretDown />
           </button>
           <div
@@ -48,7 +48,7 @@ export const DashNavbar = () => {
               type="button"
               css={dropdownBtnCss}
               className="dropdown-btn"
-              onClick={() => console.log("logout user")}
+              onClick={logoutUser}
             >
               logout
             </button>

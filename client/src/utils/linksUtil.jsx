@@ -1,5 +1,6 @@
 import { FaBehance, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { IoBarChartSharp } from "react-icons/io5";
+import { FaClipboardList } from "react-icons/fa";
 import { MdQueryStats } from "react-icons/md";
 import { FaWpforms } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
@@ -9,7 +10,7 @@ export const dashboardLinks = [
     id: 1,
     text: "shopping-list",
     path: "/dashboard",
-    icon: <IoBarChartSharp />,
+    icon: <FaClipboardList />,
   },
 
   {
@@ -24,7 +25,7 @@ export const homeLinks = [
   {
     id: 1,
     href: "#home",
-    url: "/",
+    url: "/home",
     text: "home",
   },
   {
@@ -38,7 +39,7 @@ export const homeLinks = [
   //   url: "/availability-calendar",
   //   text: "availability calendar",
   // },
-  { id: 4, url: "/shopping-list", text: "shopping list" },
+  { id: 4, url: "/dashboard", text: "shopping list" },
   { id: 5, url: "/register", text: "account" },
 ];
 

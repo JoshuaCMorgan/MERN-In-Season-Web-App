@@ -4,37 +4,47 @@ import { FaTimes } from "react-icons/fa";
 import { useAppContext } from "../../context/appContext";
 import { DashNavLinks } from "./DashNavLinks";
 import { Logo } from "./../Logo";
+import * as mq from "../../styles/media-queries";
 
 export const DashSmallSidebar = () => {
   const { showSidebar, toggleSidebar } = useAppContext();
 
   return (
     <aside css={asideCss}>
-      <h4>Small Sidebar</h4>
-      {/* <div
+      <div
         css={
-          showSidebar ? [sidebarContainerCss, showSidebar] : sidebarContainerCss
+          showSidebar
+            ? [sidebarContainerCss, showSidebarCss]
+            : sidebarContainerCss
         }
         className={
           showSidebar ? "sidebar-container show-sidebar" : "sidebar-container"
         }
       >
-        <div className="content">
-          <button className="close-btn" onClick={toggleSidebar}>
+        <div css={contentCss} className="content">
+          <button
+            css={closeBtnCss}
+            type="button"
+            className="close-btn"
+            onClick={toggleSidebar}
+          >
             <FaTimes />
           </button>
           <header>
             <Logo />
           </header>
-          <DashNavLinks toggleSidebar={toggleSidebar} />
+          <DashNavLinks
+            cssLinksOverrides={navLinksCss}
+            toggleSidebar={toggleSidebar}
+          />
         </div>
-      </div> */}
+      </div>
     </aside>
   );
 };
 
 const asideCss = css({
-  "@media (min-width: 991px)": {
+  [mq.small]: {
     display: "none",
   },
 });
@@ -85,23 +95,32 @@ const navLinksCss = css({
   flexDirection: "column",
 });
 
-const navLinkCss = css({
-  display: "flex",
-  alignItems: "center",
-  color: "var(--grey-500)",
-  padding: "1rem 0",
-  textTransform: "capitalize",
-  transition: "var(--transition)",
-});
+// const navLinkCss = css({
+//   display: "flex",
+//   alignItems: "center",
+//   color: "var(--grey-500)",
+//   padding: "1rem 0",
+//   textTransform: "capitalize",
+//   transition: "var(--transition)",
+//   "&:hover": {
+//     color: "var(--primary-500)",
+//   },
+//   ".active": {
+//     color: "var(--grey-900)",
+//   },
+// });
 
-const iconCss = css({
-  fontSize: "1.5rem",
-  marginRight: "1rem",
-  display: "grid",
-  placeItems: "center",
-  transition: "var(--transition)",
-});
+// const iconCss = css({
+//   fontSize: "1.5rem",
+//   marginRight: "1rem",
+//   display: "grid",
+//   placeItems: "center",
+//   transition: "var(--transition)",
+//   "&:hover": {
+//     color: "var(--primary-500)",
+//   },
+// });
 
-const activeCss = css({
-  color: "var(--grey-900)",
-});
+// const activeCss = css({
+//   color: "var(--grey-900)",
+// });
