@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from "react-icons/fa";
 import { useAppContext } from "../../context/appContext";
 import { Logo } from "../Logo";
+import * as mq from "../../styles/media-queries";
 
 export const DashNavbar = () => {
   const [showLogout, setShowLogout] = useState(false);
@@ -67,7 +68,7 @@ const navbarCss = css({
   boxShadow: "0 1px 0px 0px rgba(0, 0, 0, 0.1)",
   background: "var(--white)",
 
-  "@media (max-width: 991px)": {
+  [mq.small]: {
     position: "sticky",
     top: "0",
   },
@@ -77,7 +78,7 @@ const logoCss = css({
   display: "flex",
   alignItems: "center",
   width: "275px",
-  "@media (max-width: 991px)": {
+  [mq.small]: {
     display: "none",
   },
 });
@@ -88,7 +89,7 @@ const navCenterCss = css({
   alignItems: "center",
   justifyContent: "space-between",
 
-  "@media (max-width: 991px)": {
+  [mq.small]: {
     width: "90%",
   },
 });
@@ -145,7 +146,7 @@ const dropdownBtnCss = css({
 const logoTextCss = css({
   display: "none",
   margin: "0",
-  "@media (max-width: 991px)": {
+  [mq.small]: {
     display: "block",
   },
 });

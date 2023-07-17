@@ -13,6 +13,7 @@ export const DashNavLinks = ({ cssLinksOverrides, toggleSidebar }) => {
             align-items: center;
             color: var(--grey-500);
             padding: 1rem 0;
+            padding-left: 2.5rem;
             text-transform: capitalize;
             transition: var(--transition);
           }
@@ -24,10 +25,12 @@ export const DashNavLinks = ({ cssLinksOverrides, toggleSidebar }) => {
             transition: var(--transition);
           }
           .nav-link:hover {
+            background: var(--grey-50);
+            padding-left: 3rem;
             color: var(--grey-900);
           }
-          .nav-link:hover {
-            color: var(--grey-900);
+          .nav-link:hover .icon {
+            color: var(--primary-500);
           }
           .active {
             color: var(--grey-900);
@@ -38,23 +41,20 @@ export const DashNavLinks = ({ cssLinksOverrides, toggleSidebar }) => {
         `}
       />
       {dashboardLinks.map((link) => {
-        console.log(link);
         const { text, path, id, icon } = link;
         return (
-          <div>
-            <NavLink
-              to={path}
-              key={id}
-              onClick={toggleSidebar}
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-              end
-            >
-              <span className="icon">{icon}</span>
-              {text}
-            </NavLink>
-          </div>
+          <NavLink
+            to={path}
+            key={id}
+            onClick={toggleSidebar}
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+            end
+          >
+            <span className="icon">{icon}</span>
+            {text}
+          </NavLink>
         );
       })}
     </div>

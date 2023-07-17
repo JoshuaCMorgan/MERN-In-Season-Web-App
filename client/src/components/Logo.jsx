@@ -4,5 +4,5 @@ import styled from "@emotion/styled";
 import logo from "../assets/images/myLogo.svg";
 
 export const Logo = ({ cssOverrides }) => {
-  return <img css={cssOverrides} src={logo} alt="logo" className="logo" />;
+  return <img css={cssOverrides} src={logo} alt="logo" />;
 };

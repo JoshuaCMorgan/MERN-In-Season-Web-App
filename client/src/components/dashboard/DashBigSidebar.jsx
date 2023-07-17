@@ -3,15 +3,17 @@ import { jsx, css } from "@emotion/react";
 import { useAppContext } from "../../context/appContext";
 import { DashNavLinks } from "./DashNavLinks";
 import { Logo } from "../Logo";
+import * as mq from "../../styles/media-queries";
 
 export const DashBigSidebar = () => {
-  // const { showSidebar } = useAppContext();
+  const { showSidebar } = useAppContext();
   return (
     <aside css={asideCss}>
-      <h4>big sidebar</h4>
-      {/* <div
+      <div
         css={
-          showSidebar ? sidebarContainerCSS : [sidebarContainerCSS, showSidebar]
+          showSidebar
+            ? sidebarContainerCSS
+            : [sidebarContainerCSS, showSidebarCss]
         }
         className={
           showSidebar ? "sidebar-container" : "sidebar-container show-sidebar"
@@ -19,25 +21,34 @@ export const DashBigSidebar = () => {
       >
         <div css={contentCss} className="content">
           <header css={headerCss}>
-            <Logo />
+            <Logo cssOverrides={logoCss} />
           </header>
           <DashNavLinks cssOverrides={navLinksCss} />
         </div>
-      </div> */}
+      </div>
     </aside>
   );
 };
 
+const logoCss = css({
+  display: "flex",
+  alignItems: "center",
+  width: "225px",
+  // [mq.small]: {
+  //   display: "none",
+  // },
+});
+
 const asideCss = css({
   display: "none",
-  "@media (min-width: 991px)": {
+  [mq.small]: {
     display: "block",
     boxShadow: "1px 0px 0px 0px rgba(0, 0, 0, 0.1)",
   },
 });
 
 const sidebarContainerCSS = css({
-  "@media (min-width: 991px)": {
+  [mq.small]: {
     background: "var(--white)",
     minHeight: "100vh",
     height: "100%",
@@ -48,47 +59,47 @@ const sidebarContainerCSS = css({
 });
 
 const contentCss = css({
-  "@media (min-width: 991px)": {
+  [mq.small]: {
     position: "sticky",
     top: "0",
   },
 });
 
 const showSidebarCss = css({
-  "@media (min-width: 991px)": {
+  [mq.small]: {
     marginLeft: "0",
   },
 });
 
 const headerCss = css({
-  "@media (min-width: 991px)": {
+  [mq.small]: {
     height: "6rem",
     display: "flex",
     alignItems: "center",
-    paddingLeft: "2.5rem",
+    paddingLeft: "1rem",
   },
 });
 
 const navLinksCss = css({
-  "@media (min-width: 991px)": {
+  [mq.small]: {
     paddingTop: "2rem",
     display: "flex",
     flexDirection: "column",
   },
 });
-const navLinkCss = css({
-  "@media (min-width: 991px)": {
-    display: "flex",
-    alignItems: "center",
-    color: "var(--grey-500)",
-    padding: "1rem 0",
-    paddingLeft: "2.5rem",
-    textTransform: "capitalize",
-    transition: "var(--transition)",
-  },
-});
+// const navLinkCss = css({
+//   [mq.small]: {
+//     display: "flex",
+//     alignItems: "center",
+//     color: "var(--grey-500)",
+//     padding: "1rem 4rem",
+//     paddingLeft: "2.5rem",
+//     textTransform: "capitalize",
+//     transition: "var(--transition)",
+//   },
+// });
 const iconCss = css({
-  "@media (min-width: 991px)": {
+  [mq.small]: {
     fontSize: "1.5rem",
     marginRight: "1rem",
     display: "grid",
@@ -97,7 +108,7 @@ const iconCss = css({
   },
 });
 const activeCss = css({
-  "@media (min-width: 991px)": {
+  [mq.small]: {
     color: "var(--primary-500)",
   },
 });
