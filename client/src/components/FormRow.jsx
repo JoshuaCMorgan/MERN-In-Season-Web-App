@@ -1,6 +1,13 @@
-export const FormRow = ({ type, value, name, handleChange, labelText }) => {
+export const FormRow = ({
+  cssOverride,
+  type,
+  value,
+  name,
+  handleChange,
+  labelText,
+}) => {
   return (
-    <div className="form-row">
+    <div css={cssOverride} className="form-row">
       <label htmlFor={name} className="form-label">
         {labelText || name}
       </label>

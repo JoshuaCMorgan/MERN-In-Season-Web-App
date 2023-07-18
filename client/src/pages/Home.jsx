@@ -41,7 +41,7 @@ const headerCss = css({
   justifyContent: "space-evenly",
   height: "25rem",
   marginTop: "70px",
-  background: "var(--primary-500)",
+  backgroundColor: "var(--primary-500)",
   background:
-    "linear-gradient(rgba(245, 247, 247, 0.4), rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1)), url('../src/assets/images/fruitsveggies.jpg') center/cover no-repeat",
+    "linear-gradient(rgba(245, 247, 247, 0.4), rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1)), url('/../src/assets/images/fruitsveggies.jpg') center/cover no-repeat",
 });
