@@ -33,7 +33,7 @@ app.get("/api/v1", (req, res) => {
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/produce", produceRouter);
-app.use("/api/v1/list", shoppingListRouter);
+app.use("/api/v1/list", authenticateUser, shoppingListRouter);
 
 // middleware
 app.use(notFoundMiddleware);
