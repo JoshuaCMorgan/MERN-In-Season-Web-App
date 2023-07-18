@@ -43,7 +43,7 @@ const UserSchema = new mongoose.Schema({
 // Hook gets called before saving document
 UserSchema.pre("save", async function () {
   // if we are updating a user, then don't rehash the password. Instead, just return.
-  // if the user has updated the password, then we will hash it
+  // if the user has updated the password or is registering, then we will hash it
   if (!this.isModified("password")) return;
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
