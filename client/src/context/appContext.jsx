@@ -31,6 +31,33 @@ export const AppContext = React.createContext();
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const authFetch = axios.create({
+    baseURL: "/api/v1",
+  });
+
+  // interceptors will allow us to respond to 401 error message
+  authFetch.interceptors.request.use(
+    (config) => {
+      config.headers["Authorization"] = `Bearer ${state.token}`;
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+
+  authFetch.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      console.log(error.response);
+      if (error.response.status === 401) {
+        console.log("AUTH ERROR");
+      }
+      return Promise.reject(error);
+    }
+  );
 
   const displayAlert = () => {
     dispatch({ type: DISPLAY_ALERT });
@@ -91,7 +118,11 @@ export const AppProvider = ({ children }) => {
   };
 
   const updateUser = async (currentUser) => {
-    console.log(currentUser);
+    try {
+      const data = await authFetch.patch("/auth/updateUser", currentUser);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
   return (
