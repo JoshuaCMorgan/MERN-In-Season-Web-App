@@ -11,7 +11,7 @@ import connectDB from "./db/connect.js";
 import authRouter from "./routes/authRoutes.js";
 import produceRouter from "./routes/produceRoutes.js";
 import shoppingListRouter from "./routes/shoppingListRoutes.js";
-import jobsRouter from "./routes/shoppingListRoutes.js";
+
 // middleware
 import { notFoundMiddleware } from "./middleware/not-found.js";
 import { errorHandlerMiddleware } from "./middleware/error-handler.js";
@@ -22,9 +22,8 @@ if (process.env.NODE_ENV != "production") {
 }
 
 app.use(express.json());
-
 app.get("/", (req, res) => {
-  res.redirect("/home");
+  res.json({ msg: "Welcome!" });
 });
 
 app.get("/api/v1", (req, res) => {

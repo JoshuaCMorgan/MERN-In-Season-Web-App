@@ -1,19 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from "@emotion/react";
-
+import Wrapper from "../assets/wrappers/Selections";
 const Selections = ({ produce }) => {
   return (
-    <section className="produceQuery">
+    <Wrapper>
       <h1 css={h1Css}>Your Selection: </h1>
       <ul css={ulCss}>
         {produce.map((item, idx) => {
           return (
-            <li css={liCss} key={idx} className="item-container">
+            <li key={idx} className="item-container">
               <h4>{item.name}</h4>
               <figure>
                 <img src="" alt="" />
               </figure>
-              <p css={pCss}>{item.desc}</p>
+              <p className="description">{item.desc}</p>
               <button type="button" className="btn">
                 Add to Shopping List
               </button>
@@ -21,14 +21,14 @@ const Selections = ({ produce }) => {
           );
         })}
       </ul>
-    </section>
+    </Wrapper>
   );
 };
 
-const pCss = css({
-  marginBottom: "1rem",
-  lineHeight: "1.2rem",
-});
+// const pCss = css({
+//   marginBottom: "1rem",
+//   lineHeight: "1.2rem",
+// });
 const liCss = css({
   display: "flex",
   flexDirection: "column",

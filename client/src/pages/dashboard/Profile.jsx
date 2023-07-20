@@ -6,13 +6,13 @@ import { useAppContext } from "../../context/appContext";
 import * as mq from "../../styles/media-queries";
 
 export const Profile = () => {
-  const { user, isLoading, showAlert, displayAlert, updateUser } =
+  const { user, showAlert, displayAlert, updateUser, isLoading } =
     useAppContext();
-
-  const [name, setName] = useState(user?.name);
-  const [lastName, setLastName] = useState(user?.lastName);
-  const [email, setEmail] = useState(user?.email);
-  const [location, setLocation] = useState(user?.location);
+  console.log("profileUser", user);
+  const [name, setName] = useState(user && user.name);
+  const [email, setEmail] = useState(user && user.email);
+  const [lastName, setLastName] = useState(user && user.lastName);
+  const [location, setLocation] = useState(user && user.location);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +20,9 @@ export const Profile = () => {
       displayAlert();
       return;
     }
-
+    console.log("inside handle submit");
+    console.log({ name, lastName, location, email });
+    console.log("USER", user);
     updateUser({ name, lastName, location, email });
   };
 
@@ -94,6 +96,7 @@ const formCenterBtnCss = css({
   alignSelf: "end",
   height: "35px",
   marginTop: "1rem",
+  marginBottom: "1rem",
   [mq.large]: {
     marginTop: "0",
   },

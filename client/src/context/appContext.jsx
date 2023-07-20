@@ -1,7 +1,6 @@
 import React, { useReducer, useContext } from "react";
 import { reducer } from "./reducer";
 import axios from "axios";
-
 import {
   DISPLAY_ALERT,
   CLEAR_ALERT,
@@ -10,6 +9,9 @@ import {
   SETUP_USER_ERROR,
   TOGGLE_SIDEBAR,
   LOGOUT_USER,
+  UPDATE_USER_BEGIN,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_ERROR,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -22,8 +24,9 @@ export const initialState = {
   alertText: "",
   alertType: "",
   user: user ? JSON.parse(user) : null,
-  token: null,
+  token: token,
   userLocation: userLocation || "",
+  jobLocation: userLocation || "",
   showSidebar: false,
 };
 
@@ -31,13 +34,15 @@ export const AppContext = React.createContext();
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  console.log("state", state);
+  // axios
   const authFetch = axios.create({
     baseURL: "/api/v1",
   });
 
-  // interceptors will allow us to respond to 401 error message
   authFetch.interceptors.request.use(
     (config) => {
+      console.log(config);
       config.headers["Authorization"] = `Bearer ${state.token}`;
       return config;
     },
@@ -71,6 +76,7 @@ export const AppProvider = ({ children }) => {
   };
 
   const addUserToLocalStorage = ({ user, token, location }) => {
+    console.log({ addLocal: { user, token, location } });
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("token", token);
     localStorage.setItem("location", location);
@@ -84,14 +90,14 @@ export const AppProvider = ({ children }) => {
 
   const setupUser = async ({ currentUser, endPoint, alertText }) => {
     dispatch({ type: SETUP_USER_BEGIN });
-
     try {
       const { data } = await axios.post(
         `/api/v1/auth/${endPoint}`,
         currentUser
       );
-      const { user, token, location } = data;
 
+      const { user, token, location } = data;
+      console.log({ data });
       dispatch({
         type: SETUP_USER_SUCCESS,
         payload: { user, token, location, alertText },
@@ -99,12 +105,12 @@ export const AppProvider = ({ children }) => {
 
       addUserToLocalStorage({ user, token, location });
     } catch (error) {
+      // console.log(error.response);
       dispatch({
         type: SETUP_USER_ERROR,
         payload: { msg: error.response.data.msg },
       });
     }
-
     clearAlert();
   };
 
@@ -118,11 +124,25 @@ export const AppProvider = ({ children }) => {
   };
 
   const updateUser = async (currentUser) => {
+    dispatch({ type: UPDATE_USER_BEGIN });
     try {
-      const data = await authFetch.patch("/auth/updateUser", currentUser);
+      const { data } = await authFetch.patch("/auth/updateUser", currentUser);
+
+      const { user, location, token } = data;
+      console.log("inside update user", { user, location, token });
+      dispatch({
+        type: UPDATE_USER_SUCCESS,
+        payload: { user, location, token },
+      });
+      addUserToLocalStorage({ user, location, token });
     } catch (error) {
-      console.log(error.response);
+      dispatch({
+        type: UPDATE_USER_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
     }
+
+    clearAlert();
   };
 
   return (

@@ -17,15 +17,8 @@ const initialState = {
 export function Register() {
   const navigate = useNavigate();
   const [values, setValues] = useState(initialState);
-  const {
-    user,
-    isLoading,
-    showAlert,
-    displayAlert,
-    registerUser,
-    loginUser,
-    setupUser,
-  } = useAppContext();
+  const { user, isLoading, showAlert, displayAlert, setupUser } =
+    useAppContext();
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
@@ -110,6 +103,7 @@ export function Register() {
             type="button"
             onClick={toggleMember}
             className="member-btn"
+            disabled={isLoading}
           >
             {values.isMember ? "Register" : "Login"}
           </button>

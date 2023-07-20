@@ -18,8 +18,8 @@ function App() {
           <Route path="/dashboard/profile" element={<Profile />} />
         </Route>
         <Route path="/" element={<Navigate to="/home" />}></Route>
-        <Route path="/home" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

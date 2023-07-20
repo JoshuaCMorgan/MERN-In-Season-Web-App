@@ -1,5 +1,4 @@
-/** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
+import Wrapper from "../assets/wrappers/Home";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
@@ -24,24 +23,13 @@ export const Home = () => {
   return (
     <React.Fragment>
       <Navbar />
-      <header css={headerCss}>
+      <Wrapper>
         <Hero />
         <Filter filterProduce={fetchData} />
-      </header>
+      </Wrapper>
       <main>
         <Selections produce={produce} />
       </main>
     </React.Fragment>
   );
 };
-
-const headerCss = css({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-evenly",
-  height: "25rem",
-  marginTop: "70px",
-  backgroundColor: "var(--primary-500)",
-  background:
-    "linear-gradient(rgba(245, 247, 247, 0.4), rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1)), url('/../src/assets/images/fruitsveggies.jpg') center/cover no-repeat",
-});
