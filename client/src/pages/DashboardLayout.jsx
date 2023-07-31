@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { useState, createContext, useContext } from "react";
 import Wrapper from "../assets/wrappers/Dashboard";
-import { Navbar, BigSidebar, SmallSidebar } from "../components";
+import { DashNavbar, DashBigSidebar, DashSmallSidebar } from "../components";
 
 const DashboardContext = createContext();
 
@@ -39,10 +39,10 @@ const DashboardLayout = ({ isDarkThemeEnabled }) => {
     >
       <Wrapper>
         <main className="dashboard">
-          <SmallSidebar />
-          <BigSidebar />
+          <DashSmallSidebar />
+          <DashBigSidebar />
           <div>
-            <Navbar />
+            <DashNavbar />
             <div className="dashboard-page">
               <Outlet />
             </div>

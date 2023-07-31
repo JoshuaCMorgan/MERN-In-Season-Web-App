@@ -6,6 +6,8 @@ import {
   Error,
   Admin,
   Profile,
+  HomePage,
+  ShoppingList,
 } from "./pages";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

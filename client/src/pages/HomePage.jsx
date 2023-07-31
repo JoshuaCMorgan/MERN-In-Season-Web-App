@@ -1,10 +1,8 @@
 import Wrapper from "../assets/wrappers/Home.js";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "../components/Navbar.jsx";
-import Hero from "../components/Hero.jsx";
-import Filter from "../components/Filter.jsx";
-import Selections from "../components/Selections.jsx";
+import { Navbar, Hero, Filter, Selections } from "../components";
+
 import produceData from "../produceData.jsx";
 
 const HomePage = () => {
