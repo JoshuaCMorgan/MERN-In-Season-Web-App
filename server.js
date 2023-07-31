@@ -13,8 +13,8 @@ import produceRouter from "./routes/produceRoutes.js";
 import shoppingListRouter from "./routes/shoppingListRoutes.js";
 
 // middleware
-import { notFoundMiddleware } from "./middleware/not-found.js";
-import { errorHandlerMiddleware } from "./middleware/error-handler.js";
+
+import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
 import authenticateUser from "./middleware/auth.js";
 
 if (process.env.NODE_ENV != "production") {
@@ -34,8 +34,11 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/produce", produceRouter);
 app.use("/api/v1/list", authenticateUser, shoppingListRouter);
 
+app.use("*", (req, res) => {
+  res.status(500).json({ msg: "something went wrong with route" });
+});
+
 // middleware
-app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 5100;
