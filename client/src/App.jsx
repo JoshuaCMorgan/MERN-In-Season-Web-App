@@ -1,5 +1,13 @@
-import { Home, Error, Register } from "./pages";
-import { Profile, ShoppingList, SharedLayout } from "./pages/dashboard";
+import {
+  HomeLayout,
+  Register,
+  Login,
+  DashboardLayout,
+  Error,
+  Admin,
+  Profile,
+} from "./pages";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const checkDefaultTheme = () => {
