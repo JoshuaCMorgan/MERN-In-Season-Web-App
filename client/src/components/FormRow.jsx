@@ -1,24 +1,19 @@
-export const FormRow = ({
-  cssOverride,
-  type,
-  value,
-  name,
-  handleChange,
-  labelText,
-}) => {
+const FormRow = ({ type, name, labelText, defaultValue, onChange }) => {
   return (
-    <div css={cssOverride} className="form-row">
+    <div className="form-row">
       <label htmlFor={name} className="form-label">
         {labelText || name}
       </label>
-
       <input
         type={type}
-        value={value}
+        id={name}
         name={name}
-        onChange={handleChange}
         className="form-input"
+        defaultValue={defaultValue || ""}
+        onChange={onChange}
+        required
       />
     </div>
   );
 };
+export default FormRow;

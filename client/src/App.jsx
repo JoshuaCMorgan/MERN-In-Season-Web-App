@@ -1,29 +1,56 @@
-import { Home, Error, Register, ProtectedRoute } from "./pages";
+import { Home, Error, Register } from "./pages";
 import { Profile, ShoppingList, SharedLayout } from "./pages/dashboard";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <SharedLayout />
-            </ProtectedRoute>
-          }
-        >
-          <Route index element={<ShoppingList />} />
-          <Route path="/dashboard/profile" element={<Profile />} />
-        </Route>
-        <Route path="/" element={<Navigate to="/home" />}></Route>
-        <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+const checkDefaultTheme = () => {
+  const isDarkTheme = localStorage.getItem("darkTheme") === "true";
+  document.body.classList.toggle("dark-theme", isDarkTheme);
+  return isDarkTheme;
+};
+
+const isDarkThemeEnabled = checkDefaultTheme();
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "dashboard",
+        element: <DashboardLayout isDarkThemeEnabled={isDarkThemeEnabled} />,
+        children: [
+          {
+            index: true,
+            element: <ShoppingList />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+          {
+            path: "admin",
+            element: <Admin />,
+          },
+        ],
+      },
+    ],
+  },
+]);
+
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
 export default App;

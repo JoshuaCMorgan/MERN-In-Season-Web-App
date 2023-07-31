@@ -1,13 +1,13 @@
 import Wrapper from "../assets/wrappers/Home.js";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Filter from "../components/Filter";
-import Selections from "../components/Selections";
-import produceData from "../produceData";
+import Navbar from "../components/Navbar.jsx";
+import Hero from "../components/Hero.jsx";
+import Filter from "../components/Filter.jsx";
+import Selections from "../components/Selections.jsx";
+import produceData from "../produceData.jsx";
 
-export const Home = () => {
+const HomePage = () => {
   const [produce, setProduce] = useState(produceData);
 
   const fetchData = async (query) => {
@@ -33,3 +33,5 @@ export const Home = () => {
     </React.Fragment>
   );
 };
+
+export default HomePage;

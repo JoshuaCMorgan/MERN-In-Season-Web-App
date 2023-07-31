@@ -1,24 +1,21 @@
 import { Link } from "react-router-dom";
 import Wrapper from "../assets/wrappers/RegisterAndLoginPage";
 import { Logo, FormRow } from "../components";
-const Register = () => {
+
+const Login = () => {
   return (
     <Wrapper>
       <form className="form">
         <Logo />
-        <h4>Register</h4>
-        <FormRow type="text" name="name" />
-        <FormRow type="text" name="lastName" labelText="last name" />
-        <FormRow type="text" name="location" />
-        <FormRow type="email" name="email" />
-        <FormRow type="password" name="password" />
+        <FormRow type="email" name="email" defaultValue="jmorg0605@gmail.com" />
+        <FormRow type="password" name="password" defaultValue="secret" />
         <button type="submit" className="btn btn-block">
           submit
         </button>
         <p>
           Already a member?
-          <Link to="/login" className="member-btn">
-            Login
+          <Link to="/register" className="member-btn">
+            Register
           </Link>
           `
         </p>
@@ -26,5 +23,4 @@ const Register = () => {
     </Wrapper>
   );
 };
-
-export default Register;
+export default Login;
