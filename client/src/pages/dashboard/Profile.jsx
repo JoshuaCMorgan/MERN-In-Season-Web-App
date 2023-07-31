@@ -1,4 +1,4 @@
-import Wrapper from "../../assets/wrappers/DashboardFormPage";
+import Wrapper from "../../assets/wrappers/DashboardFormPage.js";
 
 import { useState } from "react";
 import { FormRow, Alert } from "../../components";

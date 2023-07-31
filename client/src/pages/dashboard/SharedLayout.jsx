@@ -1,4 +1,4 @@
-import Wrapper from "../../assets/wrappers/SharedLayout";
+import Wrapper from "../../assets/wrappers/SharedLayout.js";
 import { Outlet } from "react-router-dom";
 
 import {

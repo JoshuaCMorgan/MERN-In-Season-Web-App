@@ -1,4 +1,4 @@
-import Wrapper from "../assets/wrappers/Home";
+import Wrapper from "../assets/wrappers/Home.js";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
