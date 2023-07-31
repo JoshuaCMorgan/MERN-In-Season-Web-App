@@ -1,12 +1,9 @@
-/** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
+import Wrapper from "../assets/wrappers/Filter";
 import { useState } from "react";
 import Select from "./Select";
 import moment from "moment";
 import { SingleDatePicker } from "./SingleDatePicker";
 import { FaChevronCircleDown } from "react-icons/fa";
-import * as mq from "../styles/media-queries";
-
 const Filter = ({ filterProduce }) => {
   const stateOptions = [
     { label: "Select A State", value: "Select A State" },
@@ -138,21 +135,9 @@ const Filter = ({ filterProduce }) => {
   };
 
   return (
-    <section css={filterCss}>
-      <div
-        css={containerCss}
-        className="container"
-        style={{ position: "relative" }}
-      >
-        <span
-          style={{
-            position: "absolute",
-            top: "16px",
-            left: "80%",
-            fontSize: "25px",
-            fontWeight: "200",
-          }}
-        >
+    <Wrapper>
+      <div className="filter-container">
+        <span className="filter-icon">
           <FaChevronCircleDown />
         </span>
         <label>
@@ -164,11 +149,7 @@ const Filter = ({ filterProduce }) => {
           />
         </label>
       </div>
-      <div
-        css={containerCss}
-        className="container"
-        style={{ position: "relative" }}
-      >
+      <div className="filter-container" style={{ position: "relative" }}>
         <span
           style={{
             position: "absolute",
@@ -189,39 +170,14 @@ const Filter = ({ filterProduce }) => {
           />
         </label>
       </div>
-      <div css={containerCss} className="container">
+      <div className="filter-container">
         <SingleDatePicker
           selectedDate={selectedDate ? selectedDate.format("DDMMYYYY") : ""}
           onDateSelected={onDateSelected}
         />
       </div>
-    </section>
+    </Wrapper>
   );
 };
-const containerCss = css({
-  padding: "7px",
-  flex: "1 1 auto",
-  maxWidth: "300px",
-  minWidth: "200px",
-  [mq.xSmall]: {
-    width: "275px",
-  },
-});
-
-const filterCss = css({
-  /* background-color: var(--primary-100); */
-  padding: "25px",
-  paddingBottom: "0",
-  display: "flex",
-  justifyContent: "center",
-
-  [mq.xSmall]: {
-    paddingTop: "5px",
-    margin: "0 4rem",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-});
 
 export default Filter;

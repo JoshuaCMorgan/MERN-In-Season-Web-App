@@ -1,6 +1,4 @@
-/** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
-import styled from "@emotion/styled";
+import Wrapper from "../../assets/wrappers/SharedLayout";
 import { Outlet } from "react-router-dom";
 
 import {
@@ -12,35 +10,18 @@ import {
 export const SharedLayout = () => {
   return (
     <>
-      <section>
-        <main css={dashboardCss} className="dashboard">
+      <Wrapper>
+        <main className="dashboard">
           <DashSmallSidebar />
           <DashBigSidebar />
           <div>
             <DashNavbar />
-            <div css={dashboardPageCss} className="dashboard-page">
+            <div className="dashboard-page">
               <Outlet />
             </div>
           </div>
         </main>
-      </section>
+      </Wrapper>
     </>
   );
 };
-
-const dashboardCss = css({
-  display: "grid",
-  gridTemplateColumns: "1fr",
-  "@media (min-width: 991px)": {
-    gridTemplateColumns: "auto 1fr",
-  },
-});
-
-const dashboardPageCss = css({
-  width: "90vw",
-  margin: "0 auto",
-  padding: "2rem 0",
-  "@media (min-width: 991px)": {
-    width: "90%",
-  },
-});

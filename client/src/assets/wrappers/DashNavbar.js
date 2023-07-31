@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Wrapper = styled.nav`
   height: var(--nav-height);
@@ -62,6 +62,9 @@ const Wrapper = styled.nav`
     text-transform: capitalize;
     cursor: pointer;
   }
+  .logo {
+    width: 250px;
+  }
   .logo-text {
     display: none;
     margin: 0;
@@ -80,5 +83,5 @@ const Wrapper = styled.nav`
       display: block;
     }
   }
-`
-export default Wrapper
+`;
+export default Wrapper;

@@ -1,11 +1,9 @@
-/** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
 import Wrapper from "../assets/wrappers/Selections";
 const Selections = ({ produce }) => {
   return (
     <Wrapper>
-      <h1 css={h1Css}>Your Selection: </h1>
-      <ul css={ulCss}>
+      <h1 className="center">Your Selection: </h1>
+      <ul className="items">
         {produce.map((item, idx) => {
           return (
             <li key={idx} className="item-container">
@@ -24,35 +22,5 @@ const Selections = ({ produce }) => {
     </Wrapper>
   );
 };
-
-// const pCss = css({
-//   marginBottom: "1rem",
-//   lineHeight: "1.2rem",
-// });
-const liCss = css({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-  alignItems: "center",
-  textAlign: "center",
-  border: "1px solid #b7b5b5",
-  backgroundColor: "var(--grey-200)",
-  borderRadius: "5px",
-  width: "240px",
-  padding: "1rem",
-});
-
-const ulCss = css({
-  display: "grid",
-  margin: "0 auto",
-  gridTemplateColumns: "repeat(auto-fill, minmax(240px, 240px))",
-  gridGap: "1.3rem",
-  justifyContent: "center",
-  backgroundColor: "var(--grey200)",
-});
-const h1Css = css({
-  textAlign: "center",
-  margin: "15px",
-});
 
 export default Selections;

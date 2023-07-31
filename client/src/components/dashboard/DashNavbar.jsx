@@ -1,8 +1,8 @@
+import Wrapper from "../../assets/wrappers/DashNavbar";
 import { useState } from "react";
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from "react-icons/fa";
 import { useAppContext } from "../../context/appContext";
 import { Logo } from "../Logo";
-import Wrapper from "../../assets/wrappers/Navbar";
 
 export const DashNavbar = () => {
   const [showLogout, setShowLogout] = useState(false);
