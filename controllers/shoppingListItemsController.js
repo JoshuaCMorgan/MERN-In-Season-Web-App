@@ -1,4 +1,4 @@
-import ShoppingListItem from "../models/shoppingListItemModel.js";
+import ShoppingListItem from "../models/ShoppingListItemModel.js";
 import { StatusCodes } from "http-status-codes";
 
 const addItem = async (req, res) => {

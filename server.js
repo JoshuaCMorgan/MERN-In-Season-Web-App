@@ -40,7 +40,7 @@ app.use("*", (req, res) => {
 // middleware
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 5100;
+const port = process.env.PORT || 5101;
 
 const start = async () => {
   try {
