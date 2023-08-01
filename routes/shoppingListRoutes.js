@@ -1,5 +1,5 @@
-import express from "express";
-const router = express.Router();
+import { Router } from "express";
+const router = Router();
 
 import {
   addItem,
@@ -8,8 +8,11 @@ import {
   showItems,
 } from "../controllers/shoppingListController.js";
 
-router.route("/").post(addItem).get(getAllItems);
+router
+  .route("/shopping-list")
+  .get(getAllItems)
+  .post(validateItemInput, addItem);
 router.route("/shopping-list").get(showItems);
-router.route("/:id").delete(deleteItem);
+router.route("/shopping-list/:id").delete(deleteItem);
 
 export default router;
