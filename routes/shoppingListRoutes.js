@@ -6,7 +6,8 @@ import {
   deleteItem,
   getAllItems,
   showItems,
-} from "../controllers/shoppingListController.js";
+} from "../controllers/shoppingListItemsController.js";
+import { validateItemInput } from "../middleware/validationMiddleware.js";
 
 router
   .route("/shopping-list")

@@ -1,4 +1,4 @@
-import Produce from "../models/Produce.js";
+import ProduceModel from "../models/ProduceModel.js";
 
 const getAllProduce = async (req, res) => {
   const { state, type, month } = req.query;
@@ -30,7 +30,7 @@ const getAllProduce = async (req, res) => {
     queryObject.type = type;
   }
 
-  const produce = await Produce.find(queryObject);
+  const produce = await ProduceModel.find(queryObject);
 
   res.status(200).json({ produce, nbHits: produce.length });
 };
