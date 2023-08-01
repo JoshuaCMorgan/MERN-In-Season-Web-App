@@ -8,14 +8,14 @@ import morgan from "morgan";
 import connectDB from "./db/connect.js";
 
 // routers
-import authRouter from "./routes/authRoutes.js";
+// import authRouter from "./routes/authRoutes.js";
 import produceRouter from "./routes/produceRoutes.js";
 import shoppingListRouter from "./routes/shoppingListRoutes.js";
 
 // middleware
 
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
-import authenticateUser from "./middleware/auth.js";
+// import authenticateUser from "./middleware/auth.js";
 
 if (process.env.NODE_ENV != "production") {
   app.use(morgan("dev"));
@@ -30,9 +30,9 @@ app.get("/api/v1", (req, res) => {
   res.send("hello");
 });
 
-app.use("/api/v1/auth", authRouter);
+// app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/produce", produceRouter);
-app.use("/api/v1/list", authenticateUser, shoppingListRouter);
+app.use("/api/v1/shopping-list", shoppingListRouter);
 
 app.use("*", (req, res) => {
   res.status(500).json({ msg: "something went wrong with route" });
