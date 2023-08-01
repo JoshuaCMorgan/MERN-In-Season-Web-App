@@ -7,7 +7,9 @@ const addItem = async (req, res) => {
 };
 
 const deleteItem = async (req, res) => {
-  res.send("delete list item");
+  const removedItem = await ShoppingListItem.findByIdAndDelete(req.params.id);
+
+  res.status(StatusCodes.OK).json({ item: removedItem });
 };
 
 const getAllItems = async (req, res) => {
@@ -15,8 +17,4 @@ const getAllItems = async (req, res) => {
   res.status(StatusCodes.OK).json({ items });
 };
 
-const showItems = async (req, res) => {
-  res.send("show list Items");
-};
-
-export { addItem, deleteItem, getAllItems, showItems };
+export { addItem, deleteItem, getAllItems };
