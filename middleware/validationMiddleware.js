@@ -1,5 +1,9 @@
 import { body, param, validationResult } from "express-validator";
-import { BadRequestError, NotFoundError } from "../errors/customErrors.js";
+import {
+  BadRequestError,
+  NotFoundError,
+  UnauthorizedError,
+} from "../errors/customErrors.js";
 import { PRODUCE_TYPE } from "../utils/constants.js";
 import mongoose from "mongoose";
 import ShoppingListItem from "../models/ShoppingListItemModel.js";
@@ -15,7 +19,9 @@ const withValidationErrors = (validateValues) => {
         if (errorMessages[0].startsWith("no job")) {
           throw new NotFoundError(errorMessages);
         }
-
+        if (errorMessages[0].startsWith("not authorized")) {
+          throw new UnauthorizedError("not authorized to access this route");
+        }
         throw new BadRequestError(errorMessages);
       }
       next();
@@ -28,6 +34,23 @@ export const validateItemInput = withValidationErrors([
   body("produceType")
     .isIn(Object.values(PRODUCE_TYPE))
     .withMessage("invalid produce type"),
+]);
+
+export const validateIdParam = withValidationErrors([
+  param("id").custom(async (value, { req }) => {
+    // check whether job id is a valid objectId of mongoose
+    const isValidId = mongoose.Types.ObjectId.isValid(value);
+    if (!isValidId) throw new BadRequestError("invalid MongoDB id");
+    // check whether shopping list item exists
+    const item = await ShoppingListItem.findById(value);
+    if (!item) throw new NotFoundError(`no job with id ${value}`);
+    // check whether user is actual owner of shopping list item
+    // if user is admin, continue.
+    const isAdmin = req.user.role === "admin";
+    const isOwner = req.user.userId === item.createdBy.toString();
+    if (!isAdmin && !isOwner)
+      throw new UnauthorizedError("not authorized to access this route");
+  }),
 ]);
 
 export const validateRegisterInput = withValidationErrors([

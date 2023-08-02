@@ -7,9 +7,12 @@ import {
   getAllItems,
 } from "../controllers/shoppingListItemsController.js";
 
-import { validateItemInput } from "../middleware/validationMiddleware.js";
+import {
+  validateIdParam,
+  validateItemInput,
+} from "../middleware/validationMiddleware.js";
 
 router.route("/").get(getAllItems).post(validateItemInput, addItem);
-router.route("/:id").delete(deleteItem);
+router.route("/:id").delete(validateIdParam, deleteItem);
 
 export default router;
