@@ -7,6 +7,7 @@ export const authenticateUser = async (req, res, next) => {
 
   try {
     const { userId, role } = verifyJWT(token);
+    // will allow us to connect created jobs with the user who created the job.
     req.user = { userId, role };
     next();
   } catch (error) {
