@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 import "express-async-errors";
 import morgan from "morgan";
-// db and authenticateUser
 import connectDB from "./db/connect.js";
+import cookieParser from "cookie-parser";
 
 // routers
 import authRouter from "./routes/authRoutes.js";
@@ -13,14 +13,16 @@ import produceRouter from "./routes/produceRoutes.js";
 import shoppingListRouter from "./routes/shoppingListRoutes.js";
 
 // middleware
-
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
+import { authenticateUser } from "./middleware/authMiddleware.js";
 
 if (process.env.NODE_ENV != "production") {
   app.use(morgan("dev"));
 }
 
 app.use(express.json());
+app.use(cookieParser());
+
 app.get("/", (req, res) => {
   res.json({ msg: "Welcome!" });
 });
@@ -31,7 +33,7 @@ app.get("/api/v1", (req, res) => {
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/produce", produceRouter);
-app.use("/api/v1/shopping-list", shoppingListRouter);
+app.use("/api/v1/shopping-list", authenticateUser, shoppingListRouter);
 
 app.use("*", (req, res) => {
   res.status(500).json({ msg: "something went wrong with route" });
