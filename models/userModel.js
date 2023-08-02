@@ -21,4 +21,12 @@ const UserSchema = new mongoose.Schema({
   avatarPublicId: String,
 });
 
+// for the user instance we get back('this'), we transform it to JavaScript object and delete password.
+// for getCurrentUser requests, we want to delete password
+UserSchema.methods.toJSON = function () {
+  let obj = this.toObject();
+  delete obj.password;
+  return obj;
+};
+
 export default mongoose.model("User", UserSchema);
