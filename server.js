@@ -10,7 +10,7 @@ import cookieParser from "cookie-parser";
 // routers
 import authRouter from "./routes/authRouter.js";
 import produceRouter from "./routes/produceRouter.js";
-import shoppingListRouter from "./routes/shoppingListRouter.js";
+import ListRouter from "./routes/ListRouter.js";
 import userRouter from "./routes/userRouter.js";
 
 // middleware
@@ -35,7 +35,7 @@ app.get("/api/v1", (req, res) => {
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", authenticateUser, userRouter);
 app.use("/api/v1/produce", produceRouter);
-app.use("/api/v1/shopping-list", authenticateUser, shoppingListRouter);
+app.use("/api/v1/list", authenticateUser, ListRouter);
 
 app.use("*", (req, res) => {
   res.status(500).json({ msg: "something went wrong with route" });

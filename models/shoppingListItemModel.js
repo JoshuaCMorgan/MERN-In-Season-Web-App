@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { PRODUCE_TYPE } from "../utils/constants.js";
 
-const ShoppingListItemSchema = new mongoose.Schema(
+const ListItemSchema = new mongoose.Schema(
   {
     name: String,
     produceType: {
@@ -16,4 +16,4 @@ const ShoppingListItemSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("ShoppingListItem", ShoppingListItemSchema);
+export default mongoose.model("ListItem", ListItemSchema);

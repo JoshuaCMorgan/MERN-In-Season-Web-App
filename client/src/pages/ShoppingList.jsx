@@ -1,5 +1,5 @@
-const ShoppingList = () => {
-  return <h1>ShoppingList</h1>;
+const List = () => {
+  return <h1>List</h1>;
 };
 
-export default ShoppingList;
+export default List;

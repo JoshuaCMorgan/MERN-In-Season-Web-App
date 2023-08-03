@@ -6,7 +6,7 @@ import {
 } from "../errors/customErrors.js";
 import { PRODUCE_TYPE } from "../utils/constants.js";
 import mongoose from "mongoose";
-import ShoppingListItem from "../models/ShoppingListItemModel.js";
+import ListItem from "../models/ListItemModel.js";
 import User from "../models/UserModel.js";
 
 const withValidationErrors = (validateValues) => {
@@ -42,7 +42,7 @@ export const validateIdParam = withValidationErrors([
     const isValidId = mongoose.Types.ObjectId.isValid(value);
     if (!isValidId) throw new BadRequestError("invalid MongoDB id");
     // check whether shopping list item exists
-    const item = await ShoppingListItem.findById(value);
+    const item = await ListItem.findById(value);
     if (!item) throw new NotFoundError(`no job with id ${value}`);
     // check whether user is actual owner of shopping list item
     // if user is admin, continue.

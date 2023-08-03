@@ -8,7 +8,7 @@ import { ImProfile } from "react-icons/im";
 export const dashboardLinks = [
   {
     id: 1,
-    text: "shopping-list",
+    text: "list",
     path: "/dashboard",
     icon: <FaClipboardList />,
   },
