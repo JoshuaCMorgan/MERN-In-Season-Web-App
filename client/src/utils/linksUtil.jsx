@@ -21,7 +21,7 @@ export const dashboardLinks = [
   },
 ];
 
-export const homeLinks = [
+export const homepageLinks = [
   {
     id: 1,
     href: "#home",

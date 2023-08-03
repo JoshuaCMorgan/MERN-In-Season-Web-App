@@ -57,6 +57,12 @@ const Wrapper = styled.aside`
     .pending {
       background: var(--background-color);
     }
+    .logo {
+      width: 200px;
+    }
+    header {
+      padding-left: 20px;
+    }
   }
 `;
 export default Wrapper;

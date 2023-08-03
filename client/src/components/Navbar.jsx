@@ -1,7 +1,7 @@
 import Wrapper from "../assets/wrappers/HomeNavBar";
 import { useState, useRef } from "react";
 import { FaBars } from "react-icons/fa";
-import { homeLinks, social } from "../utils/linksUtil";
+import { homepageLinks, social } from "../utils/linksUtil";
 import logo from "../assets/images/myLogo.svg";
 
 const Navbar = () => {
@@ -34,7 +34,7 @@ const Navbar = () => {
           style={linkStyles}
         >
           <ul className="links" ref={linksRef}>
-            {homeLinks.map((link) => {
+            {homepageLinks.map((link) => {
               const { id, url, text } = link;
               return (
                 <li key={id}>

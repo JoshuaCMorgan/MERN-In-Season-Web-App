@@ -3,9 +3,9 @@ import Wrapper from "../assets/wrappers/SmallSidebar";
 import { useDashboardContext } from "../pages/DashboardLayout";
 import Logo from "./Logo";
 
-import DashNavLinks from "./DashNavLinks";
+import NavLinks from "./NavLinks";
 
-const DashSmallSidebar = () => {
+const SmallSidebar = () => {
   const { showSidebar, toggleSidebar } = useDashboardContext();
 
   return (
@@ -22,11 +22,11 @@ const DashSmallSidebar = () => {
           <header>
             <Logo />
           </header>
-          <DashNavLinks />
+          <NavLinks />
         </div>
       </div>
     </Wrapper>
   );
 };
 
-export default DashSmallSidebar;
+export default SmallSidebar;

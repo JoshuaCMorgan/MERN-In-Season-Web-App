@@ -1,9 +1,9 @@
 import Wrapper from "../assets/wrappers/BigSidebar";
-import DashNavLinks from "./DashNavLinks";
+import NavLinks from "./NavLinks";
 import Logo from "./Logo";
 import { useDashboardContext } from "../pages/DashboardLayout";
 
-const DashBigSidebar = () => {
+const BigSidebar = () => {
   const { showSidebar } = useDashboardContext();
   return (
     <Wrapper>
@@ -17,11 +17,11 @@ const DashBigSidebar = () => {
             <header>
               <Logo />
             </header>
-            <DashNavLinks isBigSidebar />
+            <NavLinks isBigSidebar />
           </div>
         </div>
       </div>
     </Wrapper>
   );
 };
-export default DashBigSidebar;
+export default BigSidebar;

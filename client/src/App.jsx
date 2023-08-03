@@ -12,14 +12,8 @@ import {
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { action as registerAction } from "./pages/Register";
+import { action as loginAction } from "./pages/Login";
 
-const checkDefaultTheme = () => {
-  const isDarkTheme = localStorage.getItem("darkTheme") === "true";
-  document.body.classList.toggle("dark-theme", isDarkTheme);
-  return isDarkTheme;
-};
-
-const isDarkThemeEnabled = checkDefaultTheme();
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,10 +32,11 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+        action: loginAction,
       },
       {
         path: "dashboard",
-        element: <DashboardLayout isDarkThemeEnabled={isDarkThemeEnabled} />,
+        element: <DashboardLayout />,
         children: [
           {
             index: true,
