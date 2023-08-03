@@ -3,6 +3,7 @@ import { useState, createContext, useContext } from "react";
 import Wrapper from "../assets/wrappers/Dashboard";
 import { DashboardNavbar, BigSidebar, SmallSidebar } from "../components";
 import customFetch from "../utils/customFetch";
+import { toast } from "react-toastify";
 
 export const loader = async () => {
   try {
@@ -25,7 +26,9 @@ const DashboardLayout = () => {
   };
 
   const logoutUser = async () => {
-    console.log("logout user");
+    navigate("/");
+    await customFetch.get("auth/logout");
+    toast.success("Logging out...");
   };
 
   return (
