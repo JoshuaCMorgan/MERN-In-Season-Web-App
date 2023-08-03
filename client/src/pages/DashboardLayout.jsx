@@ -1,4 +1,4 @@
-import { Outlet, redirect, useLoaderData } from "react-router-dom";
+import { Outlet, redirect, useLoaderData, useNavigate } from "react-router-dom";
 import { useState, createContext, useContext } from "react";
 import Wrapper from "../assets/wrappers/Dashboard";
 import { DashboardNavbar, BigSidebar, SmallSidebar } from "../components";
@@ -18,6 +18,7 @@ const DashboardContext = createContext();
 
 const DashboardLayout = () => {
   const { user } = useLoaderData();
+  const navigate = useNavigate();
 
   const [showSidebar, setShowSidebar] = useState(false);
 
