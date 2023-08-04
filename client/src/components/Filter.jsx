@@ -149,16 +149,8 @@ const Filter = ({ filterProduce }) => {
           />
         </label>
       </div>
-      <div className="filter-container" style={{ position: "relative" }}>
-        <span
-          style={{
-            position: "absolute",
-            top: "16px",
-            left: "80%",
-            fontSize: "25px",
-            fontWeight: "200",
-          }}
-        >
+      <div className="filter-container">
+        <span className="filter-icon">
           <FaChevronCircleDown />
         </span>
         <label>
