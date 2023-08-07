@@ -6,7 +6,7 @@ import {
   Error,
   Admin,
   Profile,
-  HomePage,
+  AllProduce,
   ShoppingList,
 } from "./pages";
 
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <AllProduce />,
       },
       {
         path: "register",

@@ -1,5 +1,5 @@
 import Wrapper from "../assets/wrappers/Selections";
-const Selections = ({ produce }) => {
+const SelectionContainer = ({ produce }) => {
   return (
     <Wrapper>
       <h1 className="center">Your Selection: </h1>
@@ -23,4 +23,4 @@ const Selections = ({ produce }) => {
   );
 };
 
-export default Selections;
+export default SelectionContainer;

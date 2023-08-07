@@ -1,8 +1,8 @@
 import Wrapper from "../assets/wrappers/Select";
-const Select = ({ cat, label, value, options, onChange }) => {
+const FormRowSelect = ({ cat, label, value, list, onChange }) => {
   return (
-    <Wrapper id={cat} value={value} onChange={onChange}>
-      {options.map((option, idx) => (
+    <Wrapper>
+      {list.map((option, idx) => (
         <option key={idx} value={option.value}>
           {option.label}
         </option>
@@ -11,4 +11,4 @@ const Select = ({ cat, label, value, options, onChange }) => {
   );
 };
 
-export default Select;
+export default FormRowSelect;

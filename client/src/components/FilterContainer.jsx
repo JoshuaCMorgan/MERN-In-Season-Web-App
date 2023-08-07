@@ -1,10 +1,13 @@
 import Wrapper from "../assets/wrappers/Filter";
+import { Form, useSubmit, Link } from "react-router-dom";
 import { useState } from "react";
-import Select from "./Select";
+import FormRowSelect from "./FormRowSelect";
 import moment from "moment";
 import { SingleDatePicker } from "./SingleDatePicker";
+import { PRODUCE_TYPE } from "../../../utils/constants";
 import { FaChevronCircleDown } from "react-icons/fa";
-const Filter = ({ filterProduce }) => {
+
+const FilterContainer = () => {
   const stateOptions = [
     { label: "Select A State", value: "Select A State" },
     { label: "current location", value: "Use My Location" },
@@ -61,12 +64,6 @@ const Filter = ({ filterProduce }) => {
     { label: "Wyoming", value: "WY" },
   ];
 
-  const produceOptions = [
-    { label: "Any Produce", value: "Any Produce" },
-    { label: "Fruit", value: "Fruit" },
-    { label: "Vegetable", value: "Vegetable" },
-  ];
-
   const monthOptions = [
     { label: "Any Month", value: "Any Month" },
     { label: "Select Current Month", value: "Select Current Month" },
@@ -96,80 +93,84 @@ const Filter = ({ filterProduce }) => {
     { label: "December", value: "24" },
   ];
 
-  const [state, setState] = useState("Select A State");
-  const [type, setType] = useState("Any Produce");
-  const [selectedDate, setSelectedDate] = useState(null);
+  // const [state, setState] = useState("Select A State");
 
-  const onDateSelected = (date, month, year) => {
-    setSelectedDate(moment(`${year}${month}${date}`));
-    let data = {
-      state: state,
-      type: type,
-      month: `${month}/${date}`,
-    };
+  // const [selectedDate, setSelectedDate] = useState(null);
 
-    filterProduce(data);
-  };
+  // const onDateSelected = (date, month, year) => {
+  //   setSelectedDate(moment(`${year}${month}${date}`));
+  //   let data = {
+  //     state: state,
+  //     type: type,
+  //     month: `${month}/${date}`,
+  //   };
 
-  const handleStateChange = (event) => {
-    setState(event.target.value);
+  //   filterProduce(data);
+  // };
 
-    let data = {
-      state: event.target.value,
-      type: type,
-      month: selectedDate ? selectedDate.format("MM/DD") : selectedDate,
-    };
-    console.log(data);
-    filterProduce(data);
-  };
+  // const handleStateChange = (event) => {
+  //   setState(event.target.value);
 
-  const handleTypeChange = (event) => {
-    setType(event.target.value);
-    let data = {
-      state: state,
-      type: event.target.value,
-      month: selectedDate ? selectedDate.format("MM/DD") : selectedDate,
-    };
+  //   let data = {
+  //     state: event.target.value,
+  //     type: type,
+  //     month: selectedDate ? selectedDate.format("MM/DD") : selectedDate,
+  //   };
+  //   console.log(data);
+  //   filterProduce(data);
+  // };
 
-    filterProduce(data);
-  };
+  // const handleTypeChange = (event) => {
+  //   setType(event.target.value);
+  //   let data = {
+  //     state: state,
+  //     type: event.target.value,
+  //     month: selectedDate ? selectedDate.format("MM/DD") : selectedDate,
+  //   };
+
+  //   filterProduce(data);
+  // };
 
   return (
     <Wrapper>
-      <div className="filter-container">
-        <span className="filter-icon">
-          <FaChevronCircleDown />
-        </span>
-        <label>
-          <Select
-            cat="state"
+      <Form>
+        <div className="filter-container">
+          <span className="filter-icon">
+            <FaChevronCircleDown />
+          </span>
+
+          <FormRowSelect
+            name="state"
             options={stateOptions}
-            value={state}
-            onChange={handleStateChange}
+            defaultValue={state}
+            onChange={(e) => {
+              submit(e.currentTarget.form);
+            }}
           />
-        </label>
-      </div>
-      <div className="filter-container">
-        <span className="filter-icon">
-          <FaChevronCircleDown />
-        </span>
-        <label>
-          <Select
-            cat="food"
-            options={produceOptions}
-            value={type}
-            onChange={handleTypeChange}
+        </div>
+        <div className="filter-container">
+          <span className="filter-icon">
+            <FaChevronCircleDown />
+          </span>
+
+          <FormRowSelect
+            name="produceType"
+            list={["Any Produce", ...Object.values(PRODUCE_TYPE)]}
+            defaultValue={type}
+            onChange={(e) => {
+              submit(e.currentTarget.form);
+            }}
           />
-        </label>
-      </div>
-      <div className="filter-container">
-        <SingleDatePicker
-          selectedDate={selectedDate ? selectedDate.format("DDMMYYYY") : ""}
-          onDateSelected={onDateSelected}
-        />
-      </div>
+        </div>
+        <div className="filter-container">
+          <SingleDatePicker
+            selectedDate={selectedDate ? selectedDate.format("DDMMYYYY") : ""}
+            onDateSelected={onDateSelected}
+          />
+        </div>
+      </Form>
     </Wrapper>
   );
 };
 
-export default Filter;
+export default FilterContainer;

@@ -1,18 +1,19 @@
 import Wrapper from "../assets/wrappers/Home.js";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Navbar, Hero, Filter, Selections } from "../components";
+import { Navbar, Hero, FilterContainer, Selections } from "../components";
 
 import produceData from "../produceData.jsx";
+import customFetch from "../utils/customFetch.js";
 
-const HomePage = () => {
+const AllProduce = () => {
   const [produce, setProduce] = useState(produceData);
 
   const fetchData = async (query) => {
     console.log(query);
     try {
-      const response = await axios.get("/api/v1/produce", { params: query });
-      console.log(response);
+      const response = await customFetch.get("/produce", { params: query });
+
       setProduce(response.data.produce);
     } catch (error) {
       console.log(error);
@@ -20,15 +21,15 @@ const HomePage = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Navbar />
       <Wrapper>
         <Hero />
-        <Filter filterProduce={fetchData} />
+        <FilterContainer />
       </Wrapper>
       <Selections produce={produce} />
-    </React.Fragment>
+    </>
   );
 };
 
-export default HomePage;
+export default AllProduce;
