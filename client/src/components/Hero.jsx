@@ -5,10 +5,12 @@ const Hero = () => {
     <Wrapper>
       <div className="banner">
         <h1>What's In Season: </h1>
-        <div className="scroll-container">
-          <p>...in your state</p>
-          <p>...right now</p>
-          <p>...at your market</p>
+        <div className="animate-container">
+          <ul className="animate-text">
+            <li>...right now</li>
+            <li>...at your market</li>
+            <li>...in your state</li>
+          </ul>
         </div>
       </div>
     </Wrapper>

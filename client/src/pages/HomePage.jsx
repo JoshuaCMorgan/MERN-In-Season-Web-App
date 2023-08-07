@@ -26,9 +26,7 @@ const HomePage = () => {
         <Hero />
         <Filter filterProduce={fetchData} />
       </Wrapper>
-      <main>
-        <Selections produce={produce} />
-      </main>
+      <Selections produce={produce} />
     </React.Fragment>
   );
 };

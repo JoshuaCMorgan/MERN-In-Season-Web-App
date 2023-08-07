@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.header`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
