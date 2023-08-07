@@ -9,6 +9,7 @@ const HomePage = () => {
   const [produce, setProduce] = useState(produceData);
 
   const fetchData = async (query) => {
+    console.log(query);
     try {
       const response = await axios.get("/api/v1/produce", { params: query });
       console.log(response);
