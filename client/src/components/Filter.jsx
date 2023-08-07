@@ -119,7 +119,7 @@ const Filter = ({ filterProduce }) => {
       type: type,
       month: selectedDate ? selectedDate.format("MM/DD") : selectedDate,
     };
-
+    console.log(data);
     filterProduce(data);
   };
 
