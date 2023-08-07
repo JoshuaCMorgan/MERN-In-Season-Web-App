@@ -22,8 +22,9 @@ const Navbar = () => {
   return (
     <Wrapper>
       <div className="nav-center">
+        <div className="image"></div>
         <div className="nav-header">
-          <img src={logo} className="logo" alt="logo" />
+          <img src="../assets/images/myLogo.svg" className="logo" alt="logo" />
           <button className="nav-toggle" onClick={toggleLinks}>
             <FaBars />
           </button>

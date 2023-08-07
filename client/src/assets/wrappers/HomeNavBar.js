@@ -30,6 +30,9 @@ const Wrapper = styled.nav`
     }
   }
 
+  .image {
+    background-image: url(../assets/images/myLogo.svg)
+  }
   .logo {
     height: 40px;
   }

@@ -1,5 +1,5 @@
 import Wrapper from "../assets/wrappers/Hero";
-import heroImg from "../assets/images/fruitsveggies.jpg";
+// import heroImg from "../assets/images/fruitsveggies.jpg";
 
 const Hero = () => {
   return (

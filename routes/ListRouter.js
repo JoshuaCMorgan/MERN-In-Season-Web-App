@@ -5,7 +5,7 @@ import {
   addItem,
   deleteItem,
   getAllItems,
-} from "../controllers/ListItemsController.js";
+} from "../controllers/ListController.js";
 
 import {
   validateIdParam,
