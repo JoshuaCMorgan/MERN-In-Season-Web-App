@@ -14,6 +14,7 @@ html {
 
 :root {
   /* colors */
+  --url: url(/fruitsveggies.jpg);
   --primary-100: #80e36a;
   --primary-200: #66ca52;
   --primary-300: #4cb13a;

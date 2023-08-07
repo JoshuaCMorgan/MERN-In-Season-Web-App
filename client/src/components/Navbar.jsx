@@ -2,7 +2,7 @@ import Wrapper from "../assets/wrappers/HomeNavBar";
 import { useState, useRef } from "react";
 import { FaBars } from "react-icons/fa";
 import { homepageLinks, social } from "../utils/linksUtil";
-import logo from "../assets/images/myLogo.svg";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -22,9 +22,8 @@ const Navbar = () => {
   return (
     <Wrapper>
       <div className="nav-center">
-        <div className="image"></div>
         <div className="nav-header">
-          <img src="../assets/images/myLogo.svg" className="logo" alt="logo" />
+          <Logo />
           <button className="nav-toggle" onClick={toggleLinks}>
             <FaBars />
           </button>

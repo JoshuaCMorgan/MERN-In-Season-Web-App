@@ -12,7 +12,7 @@ const Wrapper = styled.header`
       rgba(0, 0, 0, 0.1),
       rgba(0, 0, 0, 0.1)
     ),
-    url(/assets/images/fruitsveggies.jpg) center/cover no-repeat;
+    var(--url) center/cover no-repeat;
 `;
 
 export default Wrapper;

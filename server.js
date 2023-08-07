@@ -29,7 +29,7 @@ if (process.env.NODE_ENV != "production") {
 }
 
 // make 'public' folder publicly available
-app.use(express.static(path.resolve(__dirname, "./public")));
+app.use(express.static(path.resolve(__dirname, "./client/dist")));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -48,7 +48,7 @@ app.use("/api/v1/produce", produceRouter);
 app.use("/api/v1/list", authenticateUser, ListRouter);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./public", "index.html"));
+  res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
 });
 
 app.use("*", (req, res) => {
