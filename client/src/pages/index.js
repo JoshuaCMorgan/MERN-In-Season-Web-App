@@ -7,4 +7,4 @@ export { default as Error } from "./Error";
 export { default as Profile } from "./Profile";
 export { default as Admin } from "./Admin";
 export { default as AllProduce } from "./AllProduce";
-export { default as ShoppingList } from "./ShoppingList";
+export { default as List } from "./List";

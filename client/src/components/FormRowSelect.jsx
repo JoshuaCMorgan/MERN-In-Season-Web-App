@@ -1,13 +1,31 @@
-import Wrapper from "../assets/wrappers/Select";
-const FormRowSelect = ({ cat, label, value, list, onChange }) => {
+const FormRowSelect = ({ name, value, list, onChange, defaultValue = "" }) => {
   return (
-    <Wrapper>
-      {list.map((option, idx) => (
-        <option key={idx} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </Wrapper>
+    <div className="form-row">
+      <label htmlFor="name"></label>
+      <select
+        className="form-select"
+        name={name}
+        id={name}
+        defaultValue={defaultValue}
+        onChange={onChange}
+      >
+        {list.map((option) => {
+          if (option.label) {
+            return (
+              <option value={option.value} key={option.value}>
+                {option.label}
+              </option>
+            );
+          }
+
+          return (
+            <option value={option} key={option}>
+              {option}
+            </option>
+          );
+        })}
+      </select>
+    </div>
   );
 };
 

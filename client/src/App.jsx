@@ -7,7 +7,7 @@ import {
   Admin,
   Profile,
   AllProduce,
-  ShoppingList,
+  List,
 } from "./pages";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <ShoppingList />,
+            element: <List />,
           },
           {
             path: "profile",

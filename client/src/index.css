@@ -265,9 +265,6 @@ button:disabled {
 .form-input,
 .form-textarea,
 .form-select {
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  border-radius: var(--border-radius);
   background: var(--background-color);
   border: 1px solid var(--grey-300);
   color: var(--text-color);
@@ -275,10 +272,7 @@ button:disabled {
 .form-input,
 .form-select,
 .form-btn {
-  height: 35px;
-}
-.form-row {
-  margin-bottom: 1rem;
+  height: 43px;
 }
 
 .form-textarea {

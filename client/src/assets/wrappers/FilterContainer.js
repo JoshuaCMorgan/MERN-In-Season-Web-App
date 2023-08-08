@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  padding: 25px;
-  padding-bottom: 0;
-  display: flex;
-  justify-content: center;
-
-  @media (max-width: 610px) {
-    padding-top: 5px;
-    margin: 0 4rem;
+  form {
+    padding: 25px;
+    padding-bottom: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 610px) {
+      padding-top: 5px;
+      margin: 0 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .filter-container {
@@ -30,6 +32,14 @@ const Wrapper = styled.section`
     left: 80%;
     font-size: 25px;
     font-weight: 200;
+  }
+
+  .form-select {
+    appearance: none;
+    padding: 0.7em;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 1rem;
   }
 `;
 

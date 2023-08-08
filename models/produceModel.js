@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import validator from "validator";
+import { PRODUCE_TYPE } from "../utils/constants.js";
 
 const ProduceSchema = new mongoose.Schema({
   name: {
@@ -13,11 +14,7 @@ const ProduceSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: {
-      values: ["Fruit", "Vegetable", "Herb", "Legume", "Nut"],
-      message: "{VALUE} is not supported",
-    },
-    // enum: ["fruit", "produce"],
+    enum: Object.values(PRODUCE_TYPE),
   },
   image: {
     type: String,

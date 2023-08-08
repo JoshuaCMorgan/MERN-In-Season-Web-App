@@ -3,7 +3,7 @@ import Wrapper from "../assets/wrappers/Product";
 const Product = ({ name, desc }) => {
   return (
     <Wrapper>
-      <div div className="content">
+      <div className="content">
         <h4>{name}</h4>
         <figure>
           <img src="" alt="" />
