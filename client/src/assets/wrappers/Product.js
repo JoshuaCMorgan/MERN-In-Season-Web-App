@@ -18,11 +18,9 @@ const Wrapper = styled.article`
     border-radius: 5px;
     width: 240px;
     padding: 1rem;
-    /* position: relative; */
+    
   }
-  p {
- 
-  }
+
   .btn-holder {
     margin-top: auto;
   }
