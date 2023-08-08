@@ -4,7 +4,7 @@ export { default as Navbar } from "./Navbar";
 
 export { default as Hero } from "./Hero";
 export { default as FilterContainer } from "./FilterContainer";
-export { default as SelectionContainer } from "./SelectionContainer";
+export { default as ProduceContainer } from "./ProduceContainer";
 
 export { default as BigSidebar } from "./BigSidebar";
 export { default as DashboardNavbar } from "./DashboardNavbar";

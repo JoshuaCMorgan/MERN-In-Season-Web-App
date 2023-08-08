@@ -1,35 +1,47 @@
 import Wrapper from "../assets/wrappers/Home.js";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Navbar, Hero, FilterContainer, Selections } from "../components";
-
-import produceData from "../produceData.jsx";
+import { Navbar, Hero, FilterContainer, ProduceContainer } from "../components";
+import { useLoaderData } from "react-router-dom";
+import { useContext, createContext } from "react";
 import customFetch from "../utils/customFetch.js";
+import { toast } from "react-toastify";
+export const loader = async ({ request }) => {
+  const params = Object.fromEntries([
+    ...new URL(request.url).searchParams.entries(),
+  ]);
+
+  try {
+    const { data } = await customFetch.get("/produce", {
+      params,
+    });
+    return { data };
+    // return { data, filterValues: { ...params } };
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+    return error;
+  }
+};
+
+const AllProduceContext = createContext();
 
 const AllProduce = () => {
-  const [produce, setProduce] = useState(produceData);
-
-  const fetchData = async (query) => {
-    console.log(query);
-    try {
-      const response = await customFetch.get("/produce", { params: query });
-
-      setProduce(response.data.produce);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //  const { data, filterValues } = useLoaderData();
+  const { data } = useLoaderData();
 
   return (
     <>
       <Navbar />
-      <Wrapper>
-        <Hero />
-        <FilterContainer />
-      </Wrapper>
-      <Selections produce={produce} />
+      <AllProduceContext.Provider value={{ data }}>
+        <Wrapper>
+          <Hero />
+          <FilterContainer />
+        </Wrapper>
+        <ProduceContainer />
+      </AllProduceContext.Provider>
     </>
   );
 };
 
+export const useAllProduceContext = () => useContext(AllProduceContext);
 export default AllProduce;

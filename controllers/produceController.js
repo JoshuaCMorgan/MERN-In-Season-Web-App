@@ -31,7 +31,6 @@ const getAllProduce = async (req, res) => {
   }
 
   const produce = await ProduceModel.find(queryObject);
-
   res.status(200).json({ produce, nbHits: produce.length });
 };
 
