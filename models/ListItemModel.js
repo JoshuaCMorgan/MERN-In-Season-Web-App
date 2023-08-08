@@ -4,7 +4,7 @@ import { PRODUCE_TYPE } from "../utils/constants.js";
 const ListItemSchema = new mongoose.Schema(
   {
     name: String,
-    produceType: {
+    type: {
       type: String,
       enum: Object.values(PRODUCE_TYPE),
     },

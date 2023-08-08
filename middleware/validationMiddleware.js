@@ -31,7 +31,7 @@ const withValidationErrors = (validateValues) => {
 
 export const validateItemInput = withValidationErrors([
   body("name").notEmpty().withMessage("name is required"),
-  body("produceType")
+  body("type")
     .isIn(Object.values(PRODUCE_TYPE))
     .withMessage("invalid produce type"),
 ]);

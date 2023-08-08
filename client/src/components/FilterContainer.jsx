@@ -158,7 +158,7 @@ const FilterContainer = () => {
     //       </span>
 
     //       <FormRowSelect
-    //         name="produceType"
+    //         name="type"
     //         list={["Any Produce", ...Object.values(PRODUCE_TYPE)]}
     //         defaultValue={type}
     //         onChange={(e) => {

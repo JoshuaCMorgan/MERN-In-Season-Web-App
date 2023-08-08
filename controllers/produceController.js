@@ -2,7 +2,7 @@ import ProduceModel from "../models/ProduceModel.js";
 
 const getAllProduce = async (req, res) => {
   const { state, type, month } = req.query;
-
+  console.log(req.query);
   const queryObject = {};
   let states;
 
@@ -30,7 +30,9 @@ const getAllProduce = async (req, res) => {
     queryObject.type = type;
   }
 
+  console.log(queryObject);
   const produce = await ProduceModel.find(queryObject);
+
   res.status(200).json({ produce, nbHits: produce.length });
 };
 
