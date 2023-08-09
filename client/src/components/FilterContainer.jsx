@@ -15,18 +15,30 @@ const FilterContainer = () => {
   const submit = useSubmit();
   const formRef = useRef(null);
 
+  const getFormData = (form) => {
+    const formData = new FormData(form);
+
+    if (selectedDate) {
+      const month = SelectedDate.format("MM/DD");
+      formData.append("month", month);
+      for (const pair of formData.entries()) {
+        // console.log(`${pair[0]}, ${pair[1]}`);
+      }
+      return formData;
+    }
+    for (const pair of formData.entries()) {
+      // console.log(`${pair[0]}, ${pair[1]}`);
+    }
+    return formData;
+  };
+
   const onDateSelected = (date, month, year) => {
-    const form = formRef.current;
-    const stateEl = document.getElementById("state");
-    const stateValue = stateEl.value;
+    const formData = getFormData(formRef.current);
 
-    const typeEl = document.getElementById("type");
-    const typeValue = typeEl.value;
-
-    let formData = new FormData();
-    formData.append("state", stateValue);
-    formData.append("type", typeValue);
     formData.append("month", `${month}/${date}`);
+    for (const pair of formData.entries()) {
+      // console.log(`${pair[0]}, ${pair[1]}`);
+    }
     submit(formData);
 
     setSelectedDate(moment(`${year}${month}${date}`));
@@ -45,7 +57,7 @@ const FilterContainer = () => {
             list={STATE_OPTIONS}
             defaultValue={month}
             onChange={(e) => {
-              submit(e.currentTarget.form);
+              submit(getFormData(e.currentTarget.form));
             }}
           />
         </div>
@@ -59,8 +71,7 @@ const FilterContainer = () => {
             list={["Any Produce", ...Object.values(PRODUCE_TYPE)]}
             defaultValue={type}
             onChange={(e) => {
-              console.log(e.currentTarget.form);
-              submit(e.currentTarget.form);
+              submit(getFormData(e.currentTarget.form));
             }}
           />
         </div>
