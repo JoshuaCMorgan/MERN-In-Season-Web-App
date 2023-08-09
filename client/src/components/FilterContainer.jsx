@@ -31,9 +31,7 @@ const FilterContainer = () => {
     const formData = getFormData(formRef.current);
 
     formData.append("month", `${month}/${date}`);
-    for (const pair of formData.entries()) {
-      console.log(`${pair[0]}, ${pair[1]}`);
-    }
+
     submit(formData);
 
     setSelectedDate(moment(`${year}${month}${date}`));
