@@ -10,14 +10,21 @@ export const loader = async () => {
     const { data } = await customFetch.get("/users/current-user");
     return data;
   } catch (error) {
-    redirect("/");
+    const newMsg = "You must be logged in...";
+    error.response.data.msg = newMsg;
+    toast.error(error?.response?.data?.msg);
+    return redirect("/");
   }
 };
 
 const DashboardContext = createContext();
 
 const DashboardLayout = () => {
-  const { user } = useLoaderData();
+  const loaderData = useLoaderData();
+  if (loaderData) {
+    redirect("/");
+  }
+  const { user } = loaderData;
   const navigate = useNavigate();
 
   const [showSidebar, setShowSidebar] = useState(false);
