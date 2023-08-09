@@ -10,7 +10,7 @@ import cookieParser from "cookie-parser";
 // routers
 import authRouter from "./routes/authRouter.js";
 import produceRouter from "./routes/produceRouter.js";
-import ListRouter from "./routes/ListRouter.js";
+import listRouter from "./routes/listRouter.js";
 import userRouter from "./routes/userRouter.js";
 
 // public
@@ -45,7 +45,7 @@ app.get("/api/v1", (req, res) => {
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", authenticateUser, userRouter);
 app.use("/api/v1/produce", produceRouter);
-app.use("/api/v1/list", authenticateUser, ListRouter);
+app.use("/api/v1/list", authenticateUser, listRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
