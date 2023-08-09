@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import validator from "validator";
 import { PRODUCE_TYPE } from "../utils/constants.js";
 
 const ProduceSchema = new mongoose.Schema({

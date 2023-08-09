@@ -1,4 +1,4 @@
-import ListItem from "../models/ListItemModel.js";
+import List from "../models/ListModel.js";
 import { StatusCodes } from "http-status-codes";
 
 const getAllItems = async (req, res) => {
@@ -17,7 +17,7 @@ const getAllItems = async (req, res) => {
 
   const sortKey = sortOptions[sort] || sortOptions.newest;
 
-  const items = await ListItem.find(queryObject).sort(sortKey);
+  const items = await List.find(queryObject).sort(sortKey);
 
   const totalItems = await Job.countDocuments(queryObject);
   res.status(StatusCodes.OK).json({ totalItems, items });
@@ -26,12 +26,12 @@ const getAllItems = async (req, res) => {
 const addItem = async (req, res) => {
   // since we passed along the userId by adding it in middleware, we can assign it to 'createdBy' and add
   req.body.createdBy = req.user.userId;
-  const item = await ListItem.create(req.body);
+  const item = await List.create(req.body);
   res.status(StatusCodes.CREATED).json({ item });
 };
 
 const deleteItem = async (req, res) => {
-  const removedItem = await ListItem.findByIdAndDelete(req.params.id);
+  const removedItem = await List.findByIdAndDelete(req.params.id);
 
   res.status(StatusCodes.OK).json({ item: removedItem });
 };

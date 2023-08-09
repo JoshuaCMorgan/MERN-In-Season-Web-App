@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
 import User from "../models/UserModel.js";
-import ListItems from "../models/ListItemModel.js";
+import Lists from "../models/ListModel.js";
 
 /*
 When user logs in, we are not storing user value in the front-end on the client when user logs in. It's stored in JWT in the cookie that is sent to browser. Therefore, we need a way to get the user's data
@@ -16,7 +16,7 @@ export const getCurrentUser = async (req, res) => {
 
 export const getApplicationStats = async (req, res) => {
   const users = await User.countDocuments();
-  const items = await ListItems.countDocuments();
+  const items = await Lists.countDocuments();
   res.status(StatusCodes.OK).json({ users, items });
 };
 
