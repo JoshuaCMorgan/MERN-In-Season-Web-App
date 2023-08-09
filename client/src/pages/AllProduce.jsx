@@ -11,11 +11,12 @@ export const loader = async ({ request }) => {
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
   ]);
-  // console.log(params);
+  console.log({ params });
   try {
     const { data } = await customFetch.get("/produce", {
       params,
     });
+    console.log({ data });
     return { data, filterValues: { ...params } };
   } catch (error) {
     toast.error(error?.response?.data?.msg);

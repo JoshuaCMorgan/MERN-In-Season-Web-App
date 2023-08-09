@@ -2,14 +2,14 @@ import ProduceModel from "../models/ProduceModel.js";
 
 const getAllProduce = async (req, res) => {
   const { state, type, month } = req.query;
-  console.log(req.query);
+  console.log({ requestQuery: req.query });
   const queryObject = {};
   let states;
 
   if (state && state.length === 2) {
     states = "states." + state;
   }
-
+  console.log({ queryObject });
   if (month && state && state.length === 2) {
     let [mm, dd] = month.split("/");
     let season = mm * 2;
@@ -20,14 +20,15 @@ const getAllProduce = async (req, res) => {
 
     states = states.concat(".seasons");
     queryObject[states] = season;
-  } else {
+  } else if (!month && state && state.length === 2) {
     queryObject[states] = { $exists: true };
   }
-
+  console.log("26", { queryObject });
   if (type && type !== "Any Produce") {
     queryObject.type = type;
   }
 
+  console.log({ queryObject });
   const produce = await ProduceModel.find(queryObject);
 
   res.status(200).json({ produce, nbHits: produce.length });
