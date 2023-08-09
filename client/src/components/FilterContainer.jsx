@@ -19,16 +19,13 @@ const FilterContainer = () => {
     const formData = new FormData(form);
 
     if (selectedDate) {
-      const month = SelectedDate.format("MM/DD");
+      const month = selectedDate.format("MM/DD");
+
       formData.append("month", month);
-      for (const pair of formData.entries()) {
-        // console.log(`${pair[0]}, ${pair[1]}`);
-      }
+
       return formData;
     }
-    for (const pair of formData.entries()) {
-      // console.log(`${pair[0]}, ${pair[1]}`);
-    }
+
     return formData;
   };
 
@@ -37,7 +34,7 @@ const FilterContainer = () => {
 
     formData.append("month", `${month}/${date}`);
     for (const pair of formData.entries()) {
-      // console.log(`${pair[0]}, ${pair[1]}`);
+      console.log(`${pair[0]}, ${pair[1]}`);
     }
     submit(formData);
 

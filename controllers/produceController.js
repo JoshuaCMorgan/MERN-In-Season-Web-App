@@ -2,7 +2,7 @@ import ProduceModel from "../models/ProduceModel.js";
 
 const getAllProduce = async (req, res) => {
   const { state, type, month } = req.query;
-
+  console.log(req.query);
   const queryObject = {};
   let states;
 
