@@ -7,9 +7,9 @@ When user logs in, we are not storing user value in the front-end on the client 
 */
 
 export const getCurrentUser = async (req, res) => {
-  console.log(req.user);
+  console.log("10 ", req.user);
   const user = await User.findOne({ _id: req.user.userId });
-  console.log(user);
+  console.log("12 ", user);
   // convert to JSON since we converted to Object to delete password
   const userWithoutPassword = user.toJSON();
   res.status(StatusCodes.OK).json({ user: userWithoutPassword });

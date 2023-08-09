@@ -1,14 +1,14 @@
 import { FaBehance, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { IoBarChartSharp } from "react-icons/io5";
-import { FaClipboardList } from "react-icons/fa";
+import { FaClipboardList, FaAppleAlt } from "react-icons/fa";
 import { MdQueryStats } from "react-icons/md";
 import { FaWpforms } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
-
+import { GiShinyApple } from "react-icons/gi";
 export const dashboardLinks = [
   {
     id: 1,
-    text: "list",
+    text: "shopping list",
     path: "/dashboard",
     icon: <FaClipboardList />,
   },
@@ -18,6 +18,12 @@ export const dashboardLinks = [
     text: "profile",
     path: "/dashboard/profile",
     icon: <ImProfile />,
+  },
+  {
+    id: 3,
+    text: "back to home",
+    path: "/",
+    icon: <GiShinyApple />,
   },
 ];
 
