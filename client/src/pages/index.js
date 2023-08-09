@@ -8,3 +8,4 @@ export { default as Profile } from "./Profile";
 export { default as Admin } from "./Admin";
 export { default as AllProduce } from "./AllProduce";
 export { default as List } from "./List";
+export { default as About } from "./About";

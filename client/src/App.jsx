@@ -8,6 +8,7 @@ import {
   Profile,
   AllProduce,
   List,
+  About,
 } from "./pages";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path: "login",
         element: <Login />,
         action: loginAction,
+      },
+      {
+        path: "about",
+        element: <About />,
       },
       {
         path: "dashboard",

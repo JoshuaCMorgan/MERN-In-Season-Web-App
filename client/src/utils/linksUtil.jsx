@@ -25,7 +25,7 @@ export const homepageLinks = [
   {
     id: 1,
     href: "#home",
-    url: "/dashboard",
+    url: "/",
     text: "home",
   },
   {
