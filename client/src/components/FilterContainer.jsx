@@ -20,9 +20,7 @@ const FilterContainer = () => {
 
     if (selectedDate) {
       const month = selectedDate.format("MM/DD");
-
       formData.append("month", month);
-
       return formData;
     }
 
