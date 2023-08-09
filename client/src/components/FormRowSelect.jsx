@@ -1,7 +1,7 @@
 const FormRowSelect = ({ name, value, list, onChange, defaultValue = "" }) => {
   return (
     <div className="form-row">
-      <label htmlFor="name"></label>
+      <label htmlFor={name}></label>
       <select
         className="form-select"
         name={name}

@@ -30,7 +30,7 @@ const getAllProduce = async (req, res) => {
     queryObject.type = type;
   }
 
-  console.log(queryObject);
+  // console.log(queryObject);
   const produce = await ProduceModel.find(queryObject);
 
   res.status(200).json({ produce, nbHits: produce.length });

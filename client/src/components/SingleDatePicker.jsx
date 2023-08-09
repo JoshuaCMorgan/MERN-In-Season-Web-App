@@ -56,6 +56,7 @@ export const SingleDatePicker = ({ selectedDate, onDateSelected }) => {
         >
           <FaCalendarDay />
         </span>
+
         <DateInput
           readOnly
           onClick={() => setShouldShowDropdown(true)}

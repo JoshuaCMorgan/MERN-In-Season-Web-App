@@ -1,6 +1,6 @@
 import Wrapper from "../assets/wrappers/FilterContainer";
 import { Form, useSubmit, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import FormRowSelect from "./FormRowSelect";
 import moment from "moment";
 import { SingleDatePicker } from "./SingleDatePicker";
@@ -9,22 +9,32 @@ import { FaChevronCircleDown } from "react-icons/fa";
 import { useAllProduceContext } from "../pages/AllProduce";
 
 const FilterContainer = () => {
-  const { data } = useAllProduceContext();
+  const [selectedDate, setSelectedDate] = useState(null);
+  const { filterValues } = useAllProduceContext();
+  const { state, type, month } = filterValues;
   const submit = useSubmit();
-  // const onDateSelected = (date, month, year) => {
-  //   setSelectedDate(moment(`${year}${month}${date}`));
-  //   let data = {
-  //     state: state,
-  //     type: type,
-  //     month: `${month}/${date}`,
-  //   };
+  const formRef = useRef(null);
 
-  //   filterProduce(data);
-  // };
+  const onDateSelected = (date, month, year) => {
+    const form = formRef.current;
+    const stateEl = document.getElementById("state");
+    const stateValue = stateEl.value;
+
+    const typeEl = document.getElementById("type");
+    const typeValue = typeEl.value;
+
+    let formData = new FormData();
+    formData.append("state", stateValue);
+    formData.append("type", typeValue);
+    formData.append("month", `${month}/${date}`);
+    submit(formData);
+
+    setSelectedDate(moment(`${year}${month}${date}`));
+  };
 
   return (
     <Wrapper>
-      <Form>
+      <Form ref={formRef}>
         <div className="filter-container">
           <span className="filter-icon">
             <FaChevronCircleDown />
@@ -33,7 +43,7 @@ const FilterContainer = () => {
           <FormRowSelect
             name="state"
             list={STATE_OPTIONS}
-            defaultValue="Select A State"
+            defaultValue={month}
             onChange={(e) => {
               submit(e.currentTarget.form);
             }}
@@ -47,18 +57,19 @@ const FilterContainer = () => {
           <FormRowSelect
             name="type"
             list={["Any Produce", ...Object.values(PRODUCE_TYPE)]}
-            defaultValue="Any Produce"
+            defaultValue={type}
             onChange={(e) => {
+              console.log(e.currentTarget.form);
               submit(e.currentTarget.form);
             }}
           />
         </div>
-        {/* <div className="filter-container">
+        <div className="filter-container">
           <SingleDatePicker
             selectedDate={selectedDate ? selectedDate.format("DDMMYYYY") : ""}
             onDateSelected={onDateSelected}
           />
-        </div> */}
+        </div>
       </Form>
     </Wrapper>
   );

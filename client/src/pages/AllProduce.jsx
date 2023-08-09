@@ -11,14 +11,11 @@ export const loader = async ({ request }) => {
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
   ]);
-  console.log("inside loader");
+
   try {
     const { data } = await customFetch.get("/produce", {
       params,
     });
-    console.log(data);
-    return { data };
-
     return { data, filterValues: { ...params } };
   } catch (error) {
     toast.error(error?.response?.data?.msg);
@@ -29,12 +26,12 @@ export const loader = async ({ request }) => {
 const AllProduceContext = createContext();
 
 const AllProduce = () => {
-  //  const { data, filterValues } = useLoaderData();
-  const { data } = useLoaderData();
+  const { data, filterValues } = useLoaderData();
+
   return (
     <>
       <Navbar />
-      <AllProduceContext.Provider value={{ data }}>
+      <AllProduceContext.Provider value={{ data, filterValues }}>
         <Wrapper>
           <Hero />
           <FilterContainer />

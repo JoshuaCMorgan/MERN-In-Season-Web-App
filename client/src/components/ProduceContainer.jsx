@@ -4,8 +4,8 @@ import Product from "./Product";
 
 const ProduceContainer = () => {
   const { data } = useAllProduceContext();
-  console.log(data);
   const { produce } = data;
+
   if (produce.length === 0) {
     return (
       <Wrapper>
