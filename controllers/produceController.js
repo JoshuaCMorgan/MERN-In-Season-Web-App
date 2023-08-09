@@ -2,8 +2,7 @@ import ProduceModel from "../models/ProduceModel.js";
 
 const getAllProduce = async (req, res) => {
   const { state, type, month } = req.query;
-  // { state: 'AK', type: 'Any Produce', month: '01/01' }
-  console.log(req.query);
+
   const queryObject = {};
   let states;
 
@@ -29,12 +28,6 @@ const getAllProduce = async (req, res) => {
     queryObject.type = type;
   }
 
-  // if (!type || type === "Any Produce") {
-  //   // select all documents in `produce` collection where the `type` field value equals either 'Fruit', 'Vegetable', 'Herb', or 'Legume'
-  //   queryObject.type = { $in: ["Fruit", "Vegetable", "Herb", "Legume", "Nut"] };
-  // }
-
-  console.log(queryObject);
   const produce = await ProduceModel.find(queryObject);
 
   res.status(200).json({ produce, nbHits: produce.length });
