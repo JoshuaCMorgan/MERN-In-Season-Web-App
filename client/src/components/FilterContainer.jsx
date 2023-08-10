@@ -29,11 +29,8 @@ const FilterContainer = () => {
 
   const onDateSelected = (date, month, year) => {
     const formData = getFormData(formRef.current);
-
     formData.append("month", `${month}/${date}`);
-
     submit(formData);
-
     setSelectedDate(moment(`${year}${month}${date}`));
   };
 
@@ -48,7 +45,7 @@ const FilterContainer = () => {
           <FormRowSelect
             name="state"
             list={STATE_OPTIONS}
-            defaultValue={month}
+            defaultValue={state}
             onChange={(e) => {
               submit(getFormData(e.currentTarget.form));
             }}
