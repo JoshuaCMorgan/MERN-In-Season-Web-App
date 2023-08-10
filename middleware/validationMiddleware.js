@@ -16,7 +16,7 @@ const withValidationErrors = (validateValues) => {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         const errorMessages = errors.array().map((error) => error.msg);
-        if (errorMessages[0].startsWith("no job")) {
+        if (errorMessages[0].startsWith("no item")) {
           throw new NotFoundError(errorMessages);
         }
         if (errorMessages[0].startsWith("not authorized")) {
@@ -43,7 +43,7 @@ export const validateIdParam = withValidationErrors([
     if (!isValidId) throw new BadRequestError("invalid MongoDB id");
     // check whether shopping list item exists
     const item = await List.findById(value);
-    if (!item) throw new NotFoundError(`no job with id ${value}`);
+    if (!item) throw new NotFoundError(`no item with id ${value}`);
     // check whether user is actual owner of shopping list item
     // if user is admin, continue.
     const isAdmin = req.user.role === "admin";
@@ -97,7 +97,5 @@ export const validateUpdateUserInput = withValidationErrors([
         throw new BadRequestError("email already exists");
       }
     }),
-
-  body("location").notEmpty().withMessage("location is required"),
   body("lastName").notEmpty().withMessage("last name is required"),
 ]);

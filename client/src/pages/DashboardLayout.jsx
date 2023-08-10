@@ -20,11 +20,7 @@ export const loader = async () => {
 const DashboardContext = createContext();
 
 const DashboardLayout = () => {
-  const loaderData = useLoaderData();
-  if (loaderData) {
-    redirect("/");
-  }
-  const { user } = loaderData;
+  const { user } = useLoaderData();
   const navigate = useNavigate();
 
   const [showSidebar, setShowSidebar] = useState(false);
@@ -55,7 +51,7 @@ const DashboardLayout = () => {
           <div>
             <DashboardNavbar />
             <div className="dashboard-page">
-              <Outlet />
+              <Outlet context={{ user }} />
             </div>
           </div>
         </main>

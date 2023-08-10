@@ -40,13 +40,9 @@ export const homepageLinks = [
     url: "/about",
     text: "about",
   },
-  // {
-  //   id: 3,
-  //   url: "/availability-calendar",
-  //   text: "availability calendar",
-  // },
-  { id: 4, url: "/dashboard", text: "shopping list" },
-  { id: 5, url: "/register", text: "account" },
+  { id: 3, url: "/dashboard", text: "shopping list" },
+  { id: 4, url: "/register", text: "account" },
+  { id: 5, url: "/login", text: "explore the app" },
 ];
 
 export const social = [

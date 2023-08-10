@@ -28,7 +28,7 @@ const Wrapper = styled.nav`
   .logo {
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 200px;
   }
   .btn-container {
     display: flex;

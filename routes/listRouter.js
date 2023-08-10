@@ -12,7 +12,9 @@ import {
   validateItemInput,
 } from "../middleware/validationMiddleware.js";
 
+import { checkForTestUser } from "../middleware/authMiddleware.js";
+
 router.route("/").get(getAllItems).post(validateItemInput, addItem);
-router.route("/:id").delete(validateIdParam, deleteItem);
+router.route("/:id").delete(checkForTestUser, validateIdParam, deleteItem);
 
 export default router;

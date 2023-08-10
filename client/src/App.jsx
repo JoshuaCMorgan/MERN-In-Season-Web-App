@@ -16,6 +16,7 @@ import { action as registerAction } from "./pages/Register";
 import { action as loginAction } from "./pages/Login";
 import { loader as dashboardLoader } from "./pages/DashboardLayout";
 import { loader as allProduceLoader } from "./pages/AllProduce";
+import { action as profileAction } from "./pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,7 @@ const router = createBrowserRouter([
           {
             path: "profile",
             element: <Profile />,
+            action: profileAction,
           },
           {
             path: "admin",
