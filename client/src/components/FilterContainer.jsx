@@ -12,7 +12,7 @@ function createMomentDate(string) {
   string = string.split("/");
   let monthNew = string[1] + string[0];
   let configuredDate = monthNew + "2023";
-  console.log({ configuredDate });
+
   return moment(configuredDate, "DDMMYYYY");
 }
 
@@ -23,13 +23,12 @@ const FilterContainer = () => {
   let momentDate;
   if (month) {
     momentDate = createMomentDate(month);
-    console.log({ momentDate });
   }
 
   const [selectedDate, setSelectedDate] = useState(
     momentDate ? momentDate : null
   );
-  console.log(selectedDate);
+
   const submit = useSubmit();
   const formRef = useRef(null);
 

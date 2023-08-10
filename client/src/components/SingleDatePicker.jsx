@@ -26,7 +26,6 @@ const CalendarContainer = styled.div({
 });
 
 export const SingleDatePicker = ({ selectedDate, onDateSelected }) => {
-  console.log(selectedDate);
   let selectedDateMoment = selectedDate && moment(selectedDate, "DDMMYYYY");
 
   const [shouldShowDropdown, setShouldShowDropdown] = useState(false);
