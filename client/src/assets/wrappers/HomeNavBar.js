@@ -10,7 +10,7 @@ const Wrapper = styled.nav`
   box-shadow: var(--dark-shadow);
 
   .nav-center {
-    @media (min-width: 800px) {
+    @media (min-width: 825px) {
       max-width: 1170px;
       margin: 0 auto;
       display: flex;
@@ -25,7 +25,7 @@ const Wrapper = styled.nav`
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    @media (min-width: 991px) {
+    @media (min-width: 825px) {
       padding: 0;
     }
   }
@@ -44,7 +44,7 @@ const Wrapper = styled.nav`
     border-color: transparent;
     transition: var(--transition);
     cursor: pointer;
-    @media (min-width: 800px) {
+    @media (min-width: 825px) {
       display: none;
     }
   }
@@ -58,14 +58,14 @@ const Wrapper = styled.nav`
     overflow: hidden;
     transition: var(--transition);
     background-color: var(--white-transparent);
-    @media (min-width: 800px) {
+    @media (min-width: 825px) {
       height: auto !important;
       padding: 5px;
     }
   }
 
   .links {
-    @media (min-width: 800px) {
+    @media (min-width: 825px) {
       display: flex;
       gap: 1.5rem;
     }
