@@ -17,23 +17,9 @@ const Product = ({ name, desc, type }) => {
         <div className="btn-holder">
           <Form method="post" action="../add-item">
             <label htmlFor={name}></label>
-            <input
-              name="name"
-              id={name}
-              className="hide"
-              readOnly
-              type="text"
-              value={name}
-            />
+            <input name="name" id={name} readOnly type="hidden" value={name} />
             <label htmlFor={type}></label>
-            <input
-              name="type"
-              id={type}
-              className="hide"
-              readOnly
-              type="text"
-              value={type}
-            />
+            <input name="type" id={type} readOnly type="hidden" value={type} />
             <button type="submit" className="btn">
               Add to Shopping List
             </button>

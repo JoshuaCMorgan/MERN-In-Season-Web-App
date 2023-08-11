@@ -6,9 +6,7 @@ const Wrapper = styled.article`
   display: flex;
   flex-flow:wrap
   box-shadow: var(--shadow-2);
-  .hide {
-    display: none;
-  }
+
   .content {
     display: flex;
     flex-direction: column;
