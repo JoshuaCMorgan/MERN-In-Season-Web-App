@@ -14,7 +14,10 @@ import {
 
 import { checkForTestUser } from "../middleware/authMiddleware.js";
 
-router.route("/").get(getAllItems).post(validateItemInput, addItem);
+router
+  .route("/")
+  .get(getAllItems)
+  .post(checkForTestUser, validateItemInput, addItem);
 router.route("/:id").delete(checkForTestUser, validateIdParam, deleteItem);
 
 export default router;

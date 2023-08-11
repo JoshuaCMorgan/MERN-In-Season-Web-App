@@ -17,6 +17,7 @@ import { action as loginAction } from "./pages/Login";
 import { loader as dashboardLoader } from "./pages/DashboardLayout";
 import { loader as allProduceLoader } from "./pages/AllProduce";
 import { action as profileAction } from "./pages/Profile";
+import { action as addItemAction } from "./pages/AddItem";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
         path: "about",
         element: <About />,
       },
+      {
+        path: "add-item",
+        action: addItemAction,
+      },
+
       {
         path: "dashboard",
         element: <DashboardLayout />,

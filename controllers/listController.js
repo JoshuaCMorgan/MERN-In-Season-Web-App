@@ -16,10 +16,10 @@ const getAllItems = async (req, res) => {
   };
 
   const sortKey = sortOptions[sort] || sortOptions.newest;
-
+  console.log(queryObject);
   const items = await List.find(queryObject).sort(sortKey);
 
-  const totalItems = await Job.countDocuments(queryObject);
+  const totalItems = await List.countDocuments(queryObject);
   res.status(StatusCodes.OK).json({ totalItems, items });
 };
 

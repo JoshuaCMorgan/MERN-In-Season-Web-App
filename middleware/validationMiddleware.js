@@ -38,7 +38,7 @@ export const validateItemInput = withValidationErrors([
 
 export const validateIdParam = withValidationErrors([
   param("id").custom(async (value, { req }) => {
-    // check whether job id is a valid objectId of mongoose
+    // check whether item id is a valid objectId of mongoose
     const isValidId = mongoose.Types.ObjectId.isValid(value);
     if (!isValidId) throw new BadRequestError("invalid MongoDB id");
     // check whether shopping list item exists
