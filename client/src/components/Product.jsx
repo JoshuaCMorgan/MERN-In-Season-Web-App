@@ -20,6 +20,8 @@ const Product = ({ name, desc, type }) => {
             <input name="name" id={name} readOnly type="hidden" value={name} />
             <label htmlFor={type}></label>
             <input name="type" id={type} readOnly type="hidden" value={type} />
+            <label htmlFor="done"></label>
+            <input type="hidden" name="done" id="done" value="false" />
             <button type="submit" className="btn">
               Add to Shopping List
             </button>

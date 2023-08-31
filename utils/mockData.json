@@ -1,0 +1,42 @@
+[
+  {
+    "name": "apple",
+    "done": true
+  },
+  {
+    "name": "banana",
+    "done": false
+  },
+  {
+    "name": "orange",
+    "done": false
+  },
+  {
+    "name": "grape",
+    "done": true
+  },
+  {
+    "name": "watermelon",
+    "done": true
+  },
+  {
+    "name": "strawberry",
+    "done": false
+  },
+  {
+    "name": "pineapple",
+    "done": true
+  },
+  {
+    "name": "kiwi",
+    "done": false
+  },
+  {
+    "name": "mango",
+    "done": false
+  },
+  {
+    "name": "pear",
+    "done": false
+  }
+]

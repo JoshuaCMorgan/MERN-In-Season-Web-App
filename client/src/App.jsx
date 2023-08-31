@@ -18,6 +18,8 @@ import { loader as dashboardLoader } from "./pages/DashboardLayout";
 import { loader as allProduceLoader } from "./pages/AllProduce";
 import { action as profileAction } from "./pages/Profile";
 import { action as addItemAction } from "./pages/AddItem";
+import { loader as listLoader } from "./pages/List";
+import { action as toggleItemAction } from "./pages/List";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +59,8 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <List />,
+            loader: listLoader,
+            action: toggleItemAction,
           },
           {
             path: "profile",

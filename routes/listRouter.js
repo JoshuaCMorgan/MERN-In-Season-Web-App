@@ -5,6 +5,7 @@ import {
   addItem,
   deleteItem,
   getAllItems,
+  toggleItem,
 } from "../controllers/listController.js";
 
 import {
@@ -18,6 +19,9 @@ router
   .route("/")
   .get(getAllItems)
   .post(checkForTestUser, validateItemInput, addItem);
-router.route("/:id").delete(checkForTestUser, validateIdParam, deleteItem);
+router
+  .route("/:id")
+  .delete(checkForTestUser, validateIdParam, deleteItem)
+  .patch(validateIdParam, toggleItem);
 
 export default router;

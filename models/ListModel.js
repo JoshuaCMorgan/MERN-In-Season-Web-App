@@ -8,6 +8,7 @@ const ListSchema = new mongoose.Schema(
       type: String,
       enum: Object.values(PRODUCE_TYPE),
     },
+    done: Boolean,
     createdBy: {
       type: mongoose.Types.ObjectId,
       ref: "User",
