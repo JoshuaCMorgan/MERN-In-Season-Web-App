@@ -52,7 +52,6 @@ const Login = () => {
           <Link to="/register" className="member-btn">
             Register
           </Link>
-          `
         </p>
       </Form>
     </Wrapper>
