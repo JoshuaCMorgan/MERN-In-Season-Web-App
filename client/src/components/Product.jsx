@@ -1,10 +1,24 @@
+import React from "react";
 import Wrapper from "../assets/wrappers/Product";
-import { Form } from "react-router-dom";
+import { Form, useFetcher } from "react-router-dom";
+import { toast } from "react-toastify";
+import customFetch from "../utils/customFetch";
 
 const Product = ({ name, desc, type }) => {
-  const handleClick = () => {
-    console.log(name, type);
+  const fetcher = useFetcher();
+
+  const handleClick = async () => {
+    const data = { name, type, done: false };
+
+    try {
+      await customFetch.post("/list", data);
+      toast.success(`${name} added successfully`);
+    } catch (error) {
+      toast.error(error?.response?.data?.msg);
+      return error;
+    }
   };
+
   return (
     <Wrapper>
       <div className="content">
@@ -15,17 +29,9 @@ const Product = ({ name, desc, type }) => {
         </figure>
         <p className="description">{desc}</p>
         <div className="btn-holder">
-          <Form method="post" action="../add-item">
-            <label htmlFor={name}></label>
-            <input name="name" id={name} readOnly type="hidden" value={name} />
-            <label htmlFor={type}></label>
-            <input name="type" id={type} readOnly type="hidden" value={type} />
-            <label htmlFor="done"></label>
-            <input type="hidden" name="done" id="done" value="false" />
-            <button type="submit" className="btn">
-              Add to Shopping List
-            </button>
-          </Form>
+          <button type="button" className="btn" onClick={handleClick}>
+            Add to Shopping List
+          </button>
         </div>
       </div>
     </Wrapper>

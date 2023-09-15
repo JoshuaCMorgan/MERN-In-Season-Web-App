@@ -7,7 +7,7 @@ import { useContext, createContext } from "react";
 import customFetch from "../utils/customFetch.js";
 import { toast } from "react-toastify";
 
-export const loader = async ({ request }) => {
+export const loader = async ({ request, event }) => {
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
   ]);
