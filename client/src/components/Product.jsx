@@ -14,7 +14,8 @@ const Product = ({ name, desc, type }) => {
       await customFetch.post("/list", data);
       toast.success(`${name} added successfully`);
     } catch (error) {
-      toast.error(error?.response?.data?.msg);
+      toast.error("You must be logged in to use...");
+      // toast.error(error?.response?.data?.msg);
       return error;
     }
   };
