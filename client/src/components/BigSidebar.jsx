@@ -12,13 +12,11 @@ const BigSidebar = () => {
           showSidebar ? "sidebar-container" : "sidebar-container show-sidebar"
         }
       >
-        <div>
-          <div className="content">
-            <header>
-              <Logo />
-            </header>
-            <NavLinks isBigSidebar />
-          </div>
+        <div className="content">
+          <header>
+            <Logo />
+          </header>
+          <NavLinks isBigSidebar />
         </div>
       </div>
     </Wrapper>
