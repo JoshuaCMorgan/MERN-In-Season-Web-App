@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
+import { BrowserRouter } from "react-router-dom";
 
 describe("something truthy and falsy", () => {
   it("true to be true", () => {
@@ -14,7 +15,7 @@ describe("something truthy and falsy", () => {
 
 describe("App", () => {
   it("renders headline", () => {
-    render(<App />);
+    render(<App />, { wrapper: BrowserRouter });
 
     screen.debug();
 
