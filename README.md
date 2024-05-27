@@ -24,7 +24,7 @@ Data used in this application is provided by: https://www.seasonalfoodguide.org
 - JWT (JSON Web Token) is a simple, compact and secure way of transmitting data between parties.
 - HTTP-only cookie is designed to be inaccessible to JavaScript running in the browser. It is a more secure way of storing sensitive information like user tokens.
 - non-relational document database uses JSON, which helps developers with readability; and was a good choice since data has little structure and has higher performance.
-  -React Router 6.4 gives us pages as independent entities, less need for global state, and more page!
+-React Router 6.4 gives us pages as independent entities, less need for global state, and more page!
 
 # If I had more time, I would change this
 
